@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-import { useIntersection } from 'hooks/useIntersection';
 import { Box, Typography } from '@mui/material';
 
 import pairProgramingImg from 'assets/images/pair-programing.jpg';
 
-function FirstSection({ anchorEl, setAnchorEl }) {
-  const ref = useRef();
-  const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
-
+function FirstSection({ anchorEl, setAnchorEl, inViewport, componentReference }) {
   const sectionsStyles = {
     fistSectionContainer: {
       display: 'flex',
@@ -25,11 +21,12 @@ function FirstSection({ anchorEl, setAnchorEl }) {
     }
   };
 
+  console.log(anchorEl, inViewport, componentReference);
   useEffect(() => {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box ref={ref} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
+    <Box ref={componentReference} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
       <Box sx={sectionsStyles.fistSectionText}>
         <Typography
           sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>

@@ -34,12 +34,6 @@ export const theme = createTheme({
       }
     }
   },
-  MuiCardMediaImg: {
-    styleOverrides: {
-      width: '50px',
-      height: 'auto'
-    }
-  },
   palette: {
     white: {
       main: '#fff'

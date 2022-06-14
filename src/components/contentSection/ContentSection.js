@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 
 import { contentItems } from './contentItems';
 
-function ContentSection() {
+function ContentSection({ anchorEl, setAnchorEl, inViewport }) {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (inViewport && anchorEl) setAnchorEl(anchorEl);
+  }, [inViewport]);
   return (
     <Grid
       container
+      id={anchorEl}
+      ref={ref}
       justifyContent="center"
       alignItems="center"
       rowSpacing={6}
@@ -15,7 +22,7 @@ function ContentSection() {
       sx={{ padding: '50px', maxWidth: '1220px', width: '100%', margin: '0 auto !important' }}>
       {contentItems.map((item) => (
         <Grid item key={item.id}>
-          <Card sx={{ maxWidth: 300 }}>
+          <Card sx={{ maxWidth: 300, height: '300px' }}>
             <CardMedia
               component="img"
               sx={{ margin: 'auto', maxHeight: '140px', width: 'auto' }}
@@ -23,7 +30,7 @@ function ContentSection() {
               alt={item.label}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div" align="center">
                 {item.label}
               </Typography>
               <Typography variant="body2" color="text.secondary">

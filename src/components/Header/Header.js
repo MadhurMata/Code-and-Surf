@@ -54,18 +54,20 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
           Code <span>&</span> Surf
         </Typography>
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
-          <List disablePadding>
-            {mainNavbarItems.map((item) => (
-              <Link
-                sx={anchorEl === item.route ? headerStyles.linkSelected : headerStyles.link}
-                key={item.id}
-                href={'#' + item.route}
-                underline="hover"
-                onClick={() => setAnchorEl(item.route)}>
-                {item.label}
-              </Link>
-            ))}
-          </List>
+          <Box display={{ xs: 'none', lg: 'block' }}>
+            <List disablePadding>
+              {mainNavbarItems.map((item) => (
+                <Link
+                  sx={anchorEl === item.route ? headerStyles.linkSelected : headerStyles.link}
+                  key={item.id}
+                  href={'#' + item.route}
+                  underline="hover"
+                  onClick={() => setAnchorEl(item.route)}>
+                  {item.label}
+                </Link>
+              ))}
+            </List>
+          </Box>
           <Box>
             <CommonButton sx={headerStyles.webButton} variant="contained">
               Contact us
