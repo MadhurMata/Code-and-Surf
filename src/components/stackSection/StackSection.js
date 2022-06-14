@@ -7,7 +7,7 @@ import pairProgramingImg from 'assets/images/pair-programing.jpg';
 
 function StackSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
-  const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
+  const inViewport = useIntersection(ref, '-300px'); // Trigger as soon as the element becomes visible
 
   const sectionsStyles = {
     fistSectionContainer: {

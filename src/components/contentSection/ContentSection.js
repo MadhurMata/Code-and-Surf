@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
+import { useIntersection } from 'hooks/useIntersection';
+
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 
 import { contentItems } from './contentItems';
 
-function ContentSection({ anchorEl, setAnchorEl, inViewport }) {
+function ContentSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
+  const inViewport = useIntersection(ref, '-300px'); // Trigger as soon as the element becomes visible
 
   useEffect(() => {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
