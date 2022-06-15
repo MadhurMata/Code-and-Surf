@@ -15,6 +15,8 @@ function App() {
       <FirstSection anchorEl="boootcampContent" setAnchorEl={setAnchorEl} />
       <ContentSection anchorEl="techStack" setAnchorEl={setAnchorEl} />
       <StackSection anchorEl="surfPackage" setAnchorEl={setAnchorEl} />
+      <FirstSection anchorEl="surf" setAnchorEl={setAnchorEl} />
+      <FirstSection anchorEl="contact" setAnchorEl={setAnchorEl} />
     </div>
   );
 }

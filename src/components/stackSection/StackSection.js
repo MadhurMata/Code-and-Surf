@@ -1,27 +1,50 @@
 import React, { useEffect, useRef } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
-import { Box, Typography } from '@mui/material';
+import { Box, Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-import pairProgramingImg from 'assets/images/pair-programing.jpg';
+import teaching from 'assets/images/code-background.jpg';
+
+const techStack = [
+  'JavaScript / TypeScript',
+  'HTML',
+  'CSS',
+  'React',
+  'Node',
+  'Express',
+  'Mongo DB',
+  `REST API's`,
+  'Git'
+];
 
 function StackSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-300px'); // Trigger as soon as the element becomes visible
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   const sectionsStyles = {
     fistSectionContainer: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      height: 'auto',
-      padding: '0 50px'
+      minHeight: '100%',
+      padding: '0 50px',
+      marginTop: '50px'
     },
     fistSectionText: {
-      width: '30%',
+      padding: '20px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center'
+      justifyContent: 'space-between',
+      borderTopRightRadius: '30px',
+      borderBottomRightRadius: '30px',
+      backgroundColor: '#eae9e9'
+    },
+    fistSectionTextSmall: {
+      padding: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      borderRadius: '30px',
+      backgroundColor: '#eae9e9'
     }
   };
 
@@ -29,25 +52,38 @@ function StackSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box ref={ref} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
-      <Box sx={sectionsStyles.fistSectionText}>
-        <Typography
-          sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>
-          Become a{' '}
-          <span style={{ color: '#009be5', fontWeight: 900, fontSize: '2.5rem' }}>
-            web developer
-          </span>{' '}
-          & a ocean rider.
+    <Grid container ref={ref} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
+      <Grid item sx={{ borderTopLeftRadius: '30px' }} sm={6} display={{ xs: 'none', sm: 'block' }}>
+        <img
+          style={{
+            width: '100%',
+            height: '100%',
+            borderTopLeftRadius: '30px',
+            borderBottomLeftRadius: '30px'
+          }}
+          src={teaching}
+          alt="Code on a screen"
+        />
+      </Grid>
+      <Grid
+        item
+        sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}
+        sm={6}
+        xs={12}>
+        <Typography sx={{ my: 2 }}>
+          {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
+          you to launch a new career in technology as a junior software developer.`}
         </Typography>
-        <Typography sx={{ mt: 2 }}>
-          Launch your career as a Web Developer. Code web applications from scratch using the most
-          modern technologies while surfing in Bali.
-        </Typography>
-      </Box>
-      <Box sx={{ width: '70%' }}>
-        <img style={{ width: '100%', height: 'auto' }} src={pairProgramingImg} alt="Girl coding" />
-      </Box>
-    </Box>
+        <Grid container rowSpacing={1} columnSpacing={1}>
+          {techStack.map((item) => (
+            <Grid item key={item}>
+              <Chip label={item} color="primary" variant="outlined" />
+            </Grid>
+          ))}
+        </Grid>
+        <Typography sx={{ mt: 2 }}>And much more...</Typography>
+      </Grid>
+    </Grid>
   );
 }
 

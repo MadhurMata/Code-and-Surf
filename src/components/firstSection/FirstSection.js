@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 import pairProgramingImg from 'assets/images/pair-programing.jpg';
 
 function FirstSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-300px'); // Trigger as soon as the element becomes visible
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   const sectionsStyles = {
     fistSectionContainer: {
@@ -19,10 +21,14 @@ function FirstSection({ anchorEl, setAnchorEl }) {
       padding: '0 50px'
     },
     fistSectionText: {
-      width: '30%',
+      width: '40%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center'
+    },
+    fistSectionTextSmall: {
+      witdh: '100%',
+      textAlign: 'center'
     }
   };
 
@@ -31,7 +37,7 @@ function FirstSection({ anchorEl, setAnchorEl }) {
   }, [inViewport]);
   return (
     <Box ref={ref} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
-      <Box sx={sectionsStyles.fistSectionText}>
+      <Box sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}>
         <Typography
           sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>
           Become a{' '}
@@ -45,7 +51,7 @@ function FirstSection({ anchorEl, setAnchorEl }) {
           modern technologies while surfing in Bali.
         </Typography>
       </Box>
-      <Box sx={{ width: '70%' }}>
+      <Box sx={{ width: '60%' }} display={{ xs: 'none', sm: 'block' }}>
         <img style={{ width: '100%', height: 'auto' }} src={pairProgramingImg} alt="Girl coding" />
       </Box>
     </Box>

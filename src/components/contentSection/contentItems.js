@@ -10,7 +10,7 @@ export const contentItems = [
     id: 0,
     imgUrl: codeImg,
     label: 'Code',
-    text: 'Learn all of the skills, tools, and processes you need to become a web developer.'
+    text: 'Learn all the skills, tools, and processes you need to become a web developer.'
   },
   {
     id: 1,
@@ -21,8 +21,8 @@ export const contentItems = [
   {
     id: 2,
     imgUrl: acommodationImg,
-    label: 'Acommodation',
-    text: 'Acommodation included in the paradisiac island of Bali.'
+    label: 'Accommodation',
+    text: 'Included accommodation. Coliving Style where you can study and share your ideas with your classmates.'
   },
   {
     id: 3,
@@ -40,6 +40,6 @@ export const contentItems = [
     id: 5,
     imgUrl: workshopsImg,
     label: 'Workshops',
-    text: 'Extra workshops and activities during the duration of the course.'
+    text: 'A flexible curriculum where you can choose workshops and activities topics.'
   }
 ];

@@ -2,11 +2,14 @@ import React from 'react';
 
 import CommonButton from 'components/CommonButton/CommonButton';
 
-import { Link, List, Typography, Box } from '@mui/material';
+import { Link, List, Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 
 import { mainNavbarItems } from './navbarItems';
 
 export const Header = ({ anchorEl, setAnchorEl }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
   const headerStyles = {
     wrapper: {
       position: 'sticky',
@@ -42,15 +45,18 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       borderBottom: '3px solid #1976d2',
       margin: '0 20px'
     },
+    titleSmall: {
+      fontSize: '1.8rem'
+    },
     webButton: {
-      // marginRight: '5px'
+      fontSize: '0.7rem'
     }
   };
 
   return (
     <Box sx={headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
-        <Typography sx={{ ml: '100px' }} variant="h1" color="primary">
+        <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
           Code <span>&</span> Surf
         </Typography>
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
@@ -69,7 +75,7 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
             </List>
           </Box>
           <Box>
-            <CommonButton sx={headerStyles.webButton} variant="contained">
+            <CommonButton sx={matches ? headerStyles.webButton : null} variant="contained">
               Contact us
             </CommonButton>
           </Box>
