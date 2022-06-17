@@ -2,30 +2,13 @@ import React, { useEffect, useRef } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 
-import { Box, List, ListItem, Typography } from '@mui/material';
+import { List, ListItem, Typography } from '@mui/material';
 
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
 function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
-
-  const listStyle = {
-    li: {
-      fontFamily: 'Walter Turncoat',
-      marginBottom: '15px',
-      marginRight: '30px',
-      background: 'linear-gradient(45deg, #095379, #00d4ff)',
-      height: '24px',
-      width: '24px',
-      borderRadius: '50%',
-      span: {
-        fontFamily: 'Walter Turncoat',
-
-        marginLeft: '30px'
-      }
-    }
-  };
 
   useEffect(() => {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 
-import { Box, Card, CardContent, CardMedia, Grid, Typography, useMediaQuery } from '@mui/material';
+import { Card, CardContent, CardMedia, Grid, Typography, useMediaQuery } from '@mui/material';
 
 import { contentItems } from './contentItems';
 import { useTheme } from '@emotion/react';
