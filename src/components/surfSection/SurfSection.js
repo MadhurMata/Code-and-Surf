@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 
-import { List, ListItem, Typography } from '@mui/material';
+import { Box, List, ListItem, Typography } from '@mui/material';
 
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
