@@ -1,14 +1,10 @@
-import React, { useEffect, useRef } from 'react';
-
-import { useIntersection } from 'hooks/useIntersection';
+import React from 'react';
 
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 import pairProgramingImg from 'assets/images/pair-programing.jpg';
 
-function FirstSection({ anchorEl, setAnchorEl }) {
-  const ref = useRef();
-  const inViewport = useIntersection(ref, '-300px'); // Trigger as soon as the element becomes visible
+function FirstSection() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -32,11 +28,8 @@ function FirstSection({ anchorEl, setAnchorEl }) {
     }
   };
 
-  useEffect(() => {
-    if (inViewport && anchorEl) setAnchorEl(anchorEl);
-  }, [inViewport]);
   return (
-    <Box ref={ref} sx={sectionsStyles.fistSectionContainer} id={anchorEl}>
+    <Box sx={sectionsStyles.fistSectionContainer} id="firstSection">
       <Box sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}>
         <Typography
           sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>

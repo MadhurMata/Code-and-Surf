@@ -3,7 +3,6 @@ import { useState, useLayoutEffect } from 'react';
 export const useIntersection = (element, rootMargin = '0px') => {
   const [isIntersecting, setIntersecting] = useState(false);
 
-  console.log('intersected', element);
   useLayoutEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -56,11 +56,14 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
   return (
     <Box sx={headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
-        <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
-          Code <span>&</span> Surf
-        </Typography>
+        <Link sx={{ textDecoration: 'none' }} href="#firstSection">
+          <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
+            Code <span>&</span> Surf
+          </Typography>
+        </Link>
+
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
-          <Box display={{ xs: 'none', lg: 'block' }}>
+          <Box display={{ xs: 'none', md: 'block' }}>
             <List disablePadding>
               {mainNavbarItems.map((item) => (
                 <Link
