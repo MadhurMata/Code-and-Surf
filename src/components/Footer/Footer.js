@@ -17,6 +17,7 @@ function Footer() {
     <Box sx={footerStyles.wrapper}>
       <Box></Box>
       <Typography>Privacy</Typography>
+      <Typography>social</Typography>
     </Box>
   );
 }
