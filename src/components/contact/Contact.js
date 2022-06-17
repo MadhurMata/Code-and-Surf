@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
+import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
 function Contact() {
