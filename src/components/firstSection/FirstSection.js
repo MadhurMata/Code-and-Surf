@@ -2,14 +2,11 @@ import React from 'react';
 
 import './styles.css';
 
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 import pairProgramingImg from 'assets/images/codding-class.jpeg';
 
 function FirstSection() {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
-
   const sectionsStyles = {
     fistSectionContainer: {
       display: 'flex',
