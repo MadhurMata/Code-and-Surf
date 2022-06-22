@@ -8,8 +8,8 @@ import temple from 'assets/images/temple.jpeg';
 
 function Contact() {
   return (
-    <SectionWrapper title="Contact us for more information">
-      <Grid container sx={{ padding: '0 50px', margin: '50px 0' }}>
+    <SectionWrapper title="Contact us for more information" backgroundColor="#f0f1ef">
+      <Grid container sx={{ padding: '0 50px', maxWidth: '1400px', margin: '50px auto' }}>
         <Grid item sm={12} md={7}>
           <Card id="contact" sx={{ padding: '20px 5px', backgroundColor: '#212529', opacity: 0.9 }}>
             <CardContent>

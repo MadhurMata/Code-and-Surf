@@ -19,7 +19,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Look what we offer!" id={anchorEl}>
+    <SectionWrapper title="Look what we offer!" id={anchorEl} backgroundColor="#f0f1ef">
       <Grid
         container
         ref={ref}
@@ -27,7 +27,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
         alignItems="center"
         rowSpacing={{ xs: 2, sm: 2, md: 6 }}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        sx={{ padding: '50px 50px 0', width: '100%', maxWidth: '1220px' }}>
+        sx={{ padding: '50px', width: '100%', maxWidth: '1220px' }}>
         {contentItems.map((item) => (
           <Grid item key={item.id}>
             {!matches ? (

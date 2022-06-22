@@ -29,7 +29,8 @@ function StackSection({ anchorEl, setAnchorEl }) {
     fistSectionContainer: {
       minHeight: '100%',
       padding: '0 50px',
-      marginTop: '50px'
+      maxWidth: '1400px',
+      margin: '50px auto 0'
     },
     fistSectionText: {
       padding: '20px',
