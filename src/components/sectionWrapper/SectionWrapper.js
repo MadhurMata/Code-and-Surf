@@ -5,7 +5,14 @@ import { Box, Typography } from '@mui/material';
 function SectionWrapper({ children, id, title }) {
   return (
     <Box
-      sx={{ paddingTop: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      sx={{
+        paddingTop: '50px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: '1400px',
+        margin: '0 auto'
+      }}>
       <Typography gutterBottom variant="h6" component="div" align="center">
         {title}
       </Typography>

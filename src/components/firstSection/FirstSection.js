@@ -4,7 +4,7 @@ import './styles.css';
 
 import { Box, Typography } from '@mui/material';
 
-import pairProgramingImg from 'assets/images/codding-class.jpeg';
+import pairProgramingImg from 'assets/images/pair-programing.jpg';
 
 function FirstSection() {
   const sectionsStyles = {
@@ -13,7 +13,9 @@ function FirstSection() {
       flexDirection: 'row',
       justifyContent: 'space-between',
       height: 'auto',
-      padding: '0 50px'
+      padding: '0 50px',
+      maxWidth: '1400px',
+      margin: '0 auto'
     },
     fistSectionText: {
       width: '40%',

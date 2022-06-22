@@ -18,6 +18,8 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       height: '70px',
       padding: '50px 50px 20px',
       backgroundColor: '#fff',
+      maxWidth: '1400px',
+      margin: '0 auto',
       zIndex: 10
     },
     innerBox: {
