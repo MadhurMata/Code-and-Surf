@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-function SectionWrapper({ children, id, title, backgroundColor = 'none' }) {
+function SectionWrapper({ children, id, title }) {
   return (
-    <Box sx={{ padding: '50px 0', backgroundColor: { backgroundColor } }}>
+    <Box
+      sx={{ paddingTop: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <Typography gutterBottom variant="h6" component="div" align="center">
         {title}
       </Typography>

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './styles.css';
+
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-import pairProgramingImg from 'assets/images/pair-programing.jpg';
+import pairProgramingImg from 'assets/images/codding-class.jpeg';
 
 function FirstSection() {
   const theme = useTheme();
@@ -24,30 +26,69 @@ function FirstSection() {
     },
     fistSectionTextSmall: {
       witdh: '100%',
-      textAlign: 'center'
+      textAlign: 'center',
+      justifyContent: 'center',
+      padding: '0 50px'
     }
   };
 
   return (
-    <Box sx={sectionsStyles.fistSectionContainer} id="firstSection">
-      <Box sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}>
-        <Typography
-          sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>
-          Become a{' '}
-          <span style={{ color: '#009be5', fontWeight: 900, fontSize: '2.5rem' }}>
-            web developer
-          </span>{' '}
-          & a ocean rider.
-        </Typography>
-        <Typography sx={{ mt: 2 }}>
-          Launch your career as a Web Developer. Code web applications from scratch using the most
-          modern technologies while surfing in Bali.
-        </Typography>
+    <>
+      <Box display={{ sm: 'block', md: 'none' }}>
+        <Box id="imageContainer">
+          <div className="overlayTopLayer">
+            <Box sx={sectionsStyles.fistSectionTextSmall}>
+              <Typography
+                sx={{
+                  fontWeight: 700,
+                  fontSize: '2rem',
+                  lineHeight: 1.2,
+                  letterSpacing: '0.03em',
+                  color: '#fff'
+                }}>
+                Become a{' '}
+                <span style={{ color: '#009be5', fontWeight: 900, fontSize: '2.5rem' }}>
+                  web developer
+                </span>{' '}
+                & a ocean rider.
+              </Typography>
+            </Box>
+          </div>
+          <div className="overlay"></div>
+        </Box>
+        <Box sx={{ margin: '50px 50px 0', textAlign: 'center' }}>
+          <Typography sx={{ fontSize: '1.2rem', lineHeight: 1.2, letterSpacing: '0.02em' }}>
+            Launch your career as a Web Developer. Code web applications from scratch using the most
+            modern technologies while surfing in Bali.
+          </Typography>
+        </Box>
       </Box>
-      <Box sx={{ width: '60%' }} display={{ xs: 'none', sm: 'block' }}>
-        <img style={{ width: '100%', height: 'auto' }} src={pairProgramingImg} alt="Girl coding" />
+      <Box display={{ xs: 'none', sm: 'none', md: 'block' }}>
+        <Box id="firstSection" sx={sectionsStyles.fistSectionContainer}>
+          <Box sx={sectionsStyles.fistSectionText}>
+            <Typography
+              sx={{ fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.03em' }}>
+              Become a{' '}
+              <span style={{ color: '#009be5', fontWeight: 900, fontSize: '2.5rem' }}>
+                web developer
+              </span>{' '}
+              & a ocean rider.
+            </Typography>
+            <Typography sx={{ mt: 2 }}>
+              Launch your career as a Web Developer. Code web applications from scratch using the
+              most modern technologies while surfing in Bali.
+            </Typography>
+          </Box>
+          <Box sx={{ maxWidth: '50%' }} display={{ xs: 'none', sm: 'block' }}>
+            <img
+              style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
+              src={pairProgramingImg}
+              alt="Girl coding"
+            />
+          </Box>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 

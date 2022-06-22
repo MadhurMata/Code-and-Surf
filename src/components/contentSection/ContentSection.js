@@ -25,9 +25,9 @@ function ContentSection({ anchorEl, setAnchorEl }) {
         ref={ref}
         justifyContent="center"
         alignItems="center"
-        rowSpacing={6}
+        rowSpacing={{ xs: 2, sm: 2, md: 6 }}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        sx={{ padding: '0 50px', maxWidth: '1220px', width: '100%', margin: '0 auto !important' }}>
+        sx={{ padding: '50px 50px 0', width: '100%', maxWidth: '1220px' }}>
         {contentItems.map((item) => (
           <Grid item key={item.id}>
             {!matches ? (
@@ -48,7 +48,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
                 </CardContent>
               </Card>
             ) : (
-              <Card sx={{ maxWidth: 300 }}>
+              <Card sx={{ maxWidth: 300, height: '130px' }}>
                 <Typography gutterBottom variant="h6" component="div" align="center">
                   {item.label}
                 </Typography>

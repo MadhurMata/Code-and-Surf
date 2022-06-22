@@ -16,7 +16,7 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       top: 0,
       right: 0,
       height: '70px',
-      padding: '50px 50px 0',
+      padding: '50px 50px 20px',
       backgroundColor: '#fff',
       zIndex: 10
     },
@@ -56,11 +56,16 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
   return (
     <Box sx={headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
-        <Link sx={{ textDecoration: 'none' }} href="#firstSection">
-          <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
-            Code <span>&</span> Surf
-          </Typography>
-        </Link>
+        <Box sx={{ width: '200px' }}>
+          <Link sx={{ textDecoration: 'none' }} href="#firstSection">
+            <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
+              {'<Code />'} <br></br>{' '}
+              <span style={{ fontSize: '1.2rem' }}>
+                & Surf <span style={{ color: 'goldenrod' }}>Bali</span>
+              </span>
+            </Typography>
+          </Link>
+        </Box>
 
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
           <Box display={{ xs: 'none', md: 'block' }}>

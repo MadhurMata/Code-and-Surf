@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
+
+import PrivacyModal from 'components/modals/privacyModal/PrivacyModal';
+
+import instagramLogo from 'assets/images/instagram.png';
+import facebookLogo from 'assets/images//facebook.png';
+import linkedinLogo from 'assets/images/linkedin.png';
 
 function Footer() {
+  const [open, setOpen] = useState(false);
+
   const footerStyles = {
     wrapper: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#eae9e9',
       width: '100%',
-      minHeight: '100px'
+      minHeight: '50px',
+      boxShadow: 'inset 0 1px #d1d1d1'
+    },
+    logo: {
+      width: '20px',
+      height: 'auto'
     }
   };
   return (
     <Box sx={footerStyles.wrapper}>
-      <Box></Box>
-      <Typography>Privacy</Typography>
-      <Typography>social</Typography>
+      <Typography variant="body2" color="text.secondary">
+        Copyright 2022 &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp;{' '}
+        <span>
+          <Link target="_blank" href="http://www.google.com">
+            <img style={{ width: '15px', margin: '0 5px' }} src={instagramLogo} alt="Instagram" />
+          </Link>
+          <Link target="_blank" href="http://www.google.com">
+            <img style={{ width: '15px', margin: '0 5px' }} src={facebookLogo} alt="Instagram" />
+          </Link>
+          <Link target="_blank" href="http://www.google.com">
+            <img style={{ width: '15px', margin: '0 5px' }} src={linkedinLogo} alt="Instagram" />
+          </Link>
+        </span>
+      </Typography>
+      <PrivacyModal open={open} onClose={() => setOpen(false)} />
     </Box>
   );
 }

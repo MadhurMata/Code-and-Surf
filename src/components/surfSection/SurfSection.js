@@ -15,7 +15,9 @@ function SurfSection({ anchorEl, setAnchorEl }) {
   }, [inViewport]);
   return (
     <SectionWrapper title="Surf experience" id={anchorEl}>
-      <Box ref={ref} sx={{ padding: '20px 50px', maxWidth: '500px', margin: 'auto' }}>
+      <Box
+        ref={ref}
+        sx={{ padding: '0 50px', maxWidth: '500px', margin: 'auto', marginTop: '50px' }}>
         <Typography sx={{ my: 2 }}>
           {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
           you to launch a new career in technology as a junior software developer.`}

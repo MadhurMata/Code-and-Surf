@@ -1,6 +1,5 @@
 {
   "name": "code-surf-bali",
-  "homepage": "http://codesurfbali.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
