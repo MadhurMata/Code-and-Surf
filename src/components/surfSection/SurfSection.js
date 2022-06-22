@@ -18,12 +18,11 @@ function SurfSection({ anchorEl, setAnchorEl }) {
       <Box
         ref={ref}
         sx={{ padding: '0 50px', maxWidth: '500px', margin: 'auto', marginTop: '50px' }}>
-        <Typography sx={{ my: 2 }}>
-          {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
-          you to launch a new career in technology as a junior software developer.`}
+        <Typography sx={{ mb: 2 }}>
+          {`LIt is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
         </Typography>
         <List>
-          <ListItem>3 weeks of surf lessons</ListItem>
+          <ListItem>3 weeks of surf lessons. 50+ hours</ListItem>
           <ListItem>Basic surf theory for beginners</ListItem>
           <ListItem>Lessons with surf instructor</ListItem>
           <ListItem>Surf guiding</ListItem>

@@ -56,9 +56,8 @@ function FirstSection() {
           <div className="overlay"></div>
         </Box>
         <Box sx={{ margin: '50px 50px 0', textAlign: 'center' }}>
-          <Typography sx={{ fontSize: '1.2rem', lineHeight: 1.2, letterSpacing: '0.02em' }}>
-            Launch your career as a Web Developer. Code web applications from scratch using the most
-            modern technologies while surfing in Bali.
+          <Typography sx={{ mt: 2 }}>
+            {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the island of Gods, Bali. Learn surfing in paradise.`}
           </Typography>
         </Box>
       </Box>
@@ -74,8 +73,7 @@ function FirstSection() {
               & a ocean rider.
             </Typography>
             <Typography sx={{ mt: 2 }}>
-              Launch your career as a Web Developer. Code web applications from scratch using the
-              most modern technologies while surfing in Bali.
+              {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the island of Gods, Bali. Learn surfing in paradise.`}
             </Typography>
           </Box>
           <Box sx={{ maxWidth: '50%' }} display={{ xs: 'none', sm: 'block' }}>
