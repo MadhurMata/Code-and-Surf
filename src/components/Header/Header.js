@@ -51,7 +51,8 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       fontSize: '1.8rem'
     },
     webButton: {
-      fontSize: '0.7rem'
+      fontSize: '0.7rem',
+      color: 'red'
     }
   };
 
@@ -85,9 +86,14 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
             </List>
           </Box>
           <Box>
-            <CommonButton sx={matches ? headerStyles.webButton : null} variant="contained">
-              Contact us
-            </CommonButton>
+            <Link sx={{ textDecoration: 'none' }} href="#contact">
+              <CommonButton
+                sx={matches ? headerStyles.webButton : null}
+                variant="outlined"
+                color="primary">
+                Contact us
+              </CommonButton>
+            </Link>
           </Box>
         </Box>
       </Box>

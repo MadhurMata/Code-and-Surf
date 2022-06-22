@@ -16,10 +16,10 @@ export const theme = createTheme({
             }
           },
           '&.MuiButton-outlined': {
-            color: '#fff',
+            color: '#009be5',
             borderColor: '#009be5',
             '&:hover': {
-              backgroundColor: 'rgba(0, 0, 0, 0.04)'
+              backgroundColor: 'rgba(0, 0, 0, 0.08)'
             }
           },
           '&.Mui-disabled': { backgroundColor: 'rgba(0, 0, 0, 0.12)' }
