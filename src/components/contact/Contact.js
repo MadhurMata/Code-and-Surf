@@ -1,15 +1,41 @@
 import React from 'react';
 
-import { Box, Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  TextField,
+  Typography,
+  useTheme,
+  useMediaQuery
+} from '@mui/material';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
 import surfLesson from 'assets/images/surf-lesson.jpeg';
 import temple from 'assets/images/temple.jpeg';
 
 function Contact() {
+  const theme = useTheme();
+  const matchesSize = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const contactStyles = {
+    container: {
+      padding: '0 50px',
+      maxWidth: '1400px',
+      margin: '50px auto'
+    },
+    containerSmallDevices: {
+      padding: '0 20px',
+      margin: '50px auto'
+    }
+  };
   return (
     <SectionWrapper title="Contact us for more information" backgroundColor="#f0f1ef">
-      <Grid container sx={{ padding: '0 50px', maxWidth: '1400px', margin: '50px auto' }}>
+      <Grid
+        container
+        sx={matchesSize ? contactStyles.containerSmallDevices : contactStyles.container}>
         <Grid item sm={12} md={7}>
           <Card id="contact" sx={{ padding: '20px 5px', backgroundColor: '#212529', opacity: 0.9 }}>
             <CardContent>

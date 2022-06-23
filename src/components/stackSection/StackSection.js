@@ -5,8 +5,6 @@ import { Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 import girlCoding from 'assets/images/girl-coding-stack.jpeg';
 
-import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
-
 import { Box } from '@mui/system';
 
 const techStack = [
@@ -36,7 +34,18 @@ function StackSection({ anchorEl, setAnchorEl }) {
       width: '70%',
       padding: '50px',
       maxWidth: '1400px',
-      margin: '100px auto 0',
+      margin: '50px auto 0',
+      backgroundColor: '#92926e'
+    },
+    firstSecContSmallDevices: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '80%',
+      padding: '20px',
+      maxWidth: '1400px',
+      margin: '50px auto 0',
       backgroundColor: '#92926e'
     },
     fistSectionText: {
@@ -62,7 +71,11 @@ function StackSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box id={anchorEl} container ref={ref} sx={sectionsStyles.fistSectionContainer}>
+    <Box
+      id={anchorEl}
+      container
+      ref={ref}
+      sx={matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer}>
       <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
         Our stack
       </Typography>
@@ -75,7 +88,11 @@ function StackSection({ anchorEl, setAnchorEl }) {
         <Grid container rowSpacing={1} columnSpacing={1}>
           {techStack.map((item) => (
             <Grid item key={item}>
-              <Chip label={item} color="primary" variant="outlined" />
+              <Chip
+                label={item}
+                sx={{ color: '#fff', backgroundColor: '#5FAAB2' }}
+                variant="contained"
+              />
             </Grid>
           ))}
         </Grid>

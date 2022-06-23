@@ -4,47 +4,63 @@ import './styles.css';
 
 import { useIntersection } from 'hooks/useIntersection';
 
-import { Box, List, ListItem, Typography } from '@mui/material';
-
-import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
+import { Box, List, ListItem, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/system';
 
 function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const surfSectionStyles = {
+    text: {
+      maxWidth: '500px',
+      margin: 'auto',
+      padding: '0 50px',
+      marginTop: '50px'
+    },
+    textSmallDevice: {
+      maxWidth: '500px',
+      margin: 'auto',
+      padding: '0 20px',
+      marginTop: '20px'
+    }
+  };
 
   useEffect(() => {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
     <Box id={anchorEl}>
-      <Box id="imageContainerSurfSection">
-        <Box className="overlayTopLayerSurf">
+      <Box
+        id="imageContainerSurfSection"
+        sx={matches ? { marginTop: '50px' } : { marginTop: '100px' }}>
+        <Box className="overlayTopLayerSurf" sx={matches ? { top: '50px' } : { top: '20px' }}>
           <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
             Surf experience
           </Typography>
           <hr
             style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }}
           />
-          <Box
-            ref={ref}
-            sx={{ padding: '0 50px', maxWidth: '500px', margin: 'auto', marginTop: '50px' }}>
+          <Box ref={ref} sx={matches ? surfSectionStyles.text : surfSectionStyles.textSmallDevice}>
             <Typography sx={{ mb: 2 }} color="#fff">
               {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
             </Typography>
             <List>
-              <ListItem>
+              <ListItem sx={{ paddingTop: 0 }}>
                 <Typography color="#fff">3 weeks of surf lessons. 50+ hours</Typography>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ paddingTop: 0 }}>
                 <Typography color="#fff">Basic surf theory for beginners</Typography>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ paddingTop: 0 }}>
                 <Typography color="#fff">Lessons with surf instructor</Typography>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ paddingTop: 0 }}>
                 <Typography color="#fff">Surf guiding</Typography>
               </ListItem>
-              <ListItem>
+              <ListItem sx={{ paddingTop: 0 }}>
                 <Typography color="#fff">Trips to different spots</Typography>
               </ListItem>
             </List>

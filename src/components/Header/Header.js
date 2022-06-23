@@ -45,7 +45,11 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       color: '#322f2f',
       fontWeight: 500,
       borderBottom: '3px solid #1976d2',
-      margin: '0 20px'
+      margin: '0 20px',
+      '&:hover': {
+        textDecoration: 'none',
+        cursor: 'pointer'
+      }
     },
     titleSmall: {
       fontSize: '1.8rem'
