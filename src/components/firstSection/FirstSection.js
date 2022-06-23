@@ -2,20 +2,20 @@ import React from 'react';
 
 import './styles.css';
 
-import { Box, Typography } from '@mui/material';
-
-import pairProgramingImg from 'assets/images/pair-programing.jpg';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 function FirstSection() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   const sectionsStyles = {
     fistSectionContainer: {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      height: 'auto',
+      alignItems: 'center',
       padding: '0 50px',
-      maxWidth: '1400px',
-      margin: '0 auto'
+      maxWidth: '1400px'
     },
     fistSectionText: {
       width: '40%',
@@ -24,7 +24,6 @@ function FirstSection() {
       justifyContent: 'center'
     },
     fistSectionTextSmall: {
-      witdh: '100%',
       textAlign: 'center',
       justifyContent: 'center',
       padding: '0 50px'
@@ -33,10 +32,13 @@ function FirstSection() {
 
   return (
     <>
-      <Box display={{ sm: 'block', md: 'none' }}>
-        <Box id="imageContainer">
-          <div className="overlayTopLayer">
-            <Box sx={sectionsStyles.fistSectionTextSmall}>
+      <Box id="imageContainer">
+        <Box className="overlayTopLayer">
+          <Box
+            sx={
+              matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionContainer
+            }>
+            <Box sx={{ maxWidth: '440px', margin: '0 auto' }}>
               <Typography
                 sx={{
                   fontWeight: 700,
@@ -52,16 +54,16 @@ function FirstSection() {
                 & a ocean rider.
               </Typography>
             </Box>
-          </div>
-          <div className="overlay"></div>
+            <Box sx={{ maxWidth: '500px', margin: '0 auto' }}>
+              <Typography color="#fff" sx={matches ? { mt: 2 } : { ml: 4 }}>
+                {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the island of Gods, Bali. Learn surfing in paradise.`}
+              </Typography>
+            </Box>
+          </Box>
         </Box>
-        <Box sx={{ margin: '50px 50px 0', textAlign: 'center' }}>
-          <Typography sx={{ mt: 2 }}>
-            {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the island of Gods, Bali. Learn surfing in paradise.`}
-          </Typography>
-        </Box>
+        <Box className="overlay"></Box>
       </Box>
-      <Box display={{ xs: 'none', sm: 'none', md: 'block' }}>
+      {/* <Box display={{ xs: 'none', sm: 'none', md: 'block' }}>
         <Box id="firstSection" sx={sectionsStyles.fistSectionContainer}>
           <Box sx={sectionsStyles.fistSectionText}>
             <Typography
@@ -84,7 +86,7 @@ function FirstSection() {
             />
           </Box>
         </Box>
-      </Box>
+      </Box> */}
     </>
   );
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+import './styles.css';
+
 import { useIntersection } from 'hooks/useIntersection';
 
 import { Box, List, ListItem, Typography } from '@mui/material';
@@ -14,22 +16,43 @@ function SurfSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Surf experience" id={anchorEl}>
-      <Box
-        ref={ref}
-        sx={{ padding: '0 50px', maxWidth: '500px', margin: 'auto', marginTop: '50px' }}>
-        <Typography sx={{ mb: 2 }}>
-          {`LIt is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
-        </Typography>
-        <List>
-          <ListItem>3 weeks of surf lessons. 50+ hours</ListItem>
-          <ListItem>Basic surf theory for beginners</ListItem>
-          <ListItem>Lessons with surf instructor</ListItem>
-          <ListItem>Surf guiding</ListItem>
-          <ListItem>Trips to different spots</ListItem>
-        </List>
+    <Box id={anchorEl}>
+      <Box id="imageContainerSurfSection">
+        <Box className="overlayTopLayerSurf">
+          <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
+            Surf experience
+          </Typography>
+          <hr
+            style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }}
+          />
+          <Box
+            ref={ref}
+            sx={{ padding: '0 50px', maxWidth: '500px', margin: 'auto', marginTop: '50px' }}>
+            <Typography sx={{ mb: 2 }} color="#fff">
+              {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
+            </Typography>
+            <List>
+              <ListItem>
+                <Typography color="#fff">3 weeks of surf lessons. 50+ hours</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography color="#fff">Basic surf theory for beginners</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography color="#fff">Lessons with surf instructor</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography color="#fff">Surf guiding</Typography>
+              </ListItem>
+              <ListItem>
+                <Typography color="#fff">Trips to different spots</Typography>
+              </ListItem>
+            </List>
+          </Box>
+        </Box>
+        <Box className="overlaySurf"></Box>
       </Box>
-    </SectionWrapper>
+    </Box>
   );
 }
 

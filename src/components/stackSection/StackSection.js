@@ -3,9 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import { useIntersection } from 'hooks/useIntersection';
 import { Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-import teaching from 'assets/images/code-background.jpg';
+import girlCoding from 'assets/images/girl-coding-stack.jpeg';
 
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
+
+import { Box } from '@mui/system';
 
 const techStack = [
   'JavaScript / TypeScript',
@@ -27,19 +29,21 @@ function StackSection({ anchorEl, setAnchorEl }) {
 
   const sectionsStyles = {
     fistSectionContainer: {
-      minHeight: '100%',
-      padding: '0 50px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '70%',
+      padding: '50px',
       maxWidth: '1400px',
-      margin: '50px auto 0'
+      margin: '100px auto 0',
+      backgroundColor: '#92926e'
     },
     fistSectionText: {
-      padding: '20px',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
-      borderTopRightRadius: '30px',
-      borderBottomRightRadius: '30px',
-      backgroundColor: '#eae9e9'
+      maxWidth: '500px'
     },
     fistSectionTextSmall: {
       padding: '20px',
@@ -48,6 +52,9 @@ function StackSection({ anchorEl, setAnchorEl }) {
       justifyContent: 'space-between',
       borderRadius: '30px',
       backgroundColor: '#eae9e9'
+    },
+    imagesContainer: {
+      marginTop: '50px'
     }
   };
 
@@ -55,9 +62,33 @@ function StackSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Our stack" id={anchorEl}>
-      <Grid container ref={ref} sx={sectionsStyles.fistSectionContainer}>
-        <Grid
+    <Box id={anchorEl} container ref={ref} sx={sectionsStyles.fistSectionContainer}>
+      <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
+        Our stack
+      </Typography>
+      <hr style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }} />
+      <Box item sx={sectionsStyles.fistSectionText}>
+        <Typography sx={{ my: 2 }} color="#fff">
+          {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
+          you to launch a new career in technology as a junior software developer.`}
+        </Typography>
+        <Grid container rowSpacing={1} columnSpacing={1}>
+          {techStack.map((item) => (
+            <Grid item key={item}>
+              <Chip label={item} color="primary" variant="outlined" />
+            </Grid>
+          ))}
+        </Grid>
+        <Typography sx={{ mt: 2 }} color="#fff">
+          And much more...
+        </Typography>
+      </Box>
+      <Box sx={sectionsStyles.imagesContainer}>
+        <Box sx={sectionsStyles.img}>
+          <img style={{ width: '100%' }} src={girlCoding} alt="Code on a screen" />
+        </Box>
+      </Box>
+      {/* <Grid
           item
           sx={{ borderTopLeftRadius: '30px' }}
           sm={6}
@@ -72,8 +103,8 @@ function StackSection({ anchorEl, setAnchorEl }) {
             src={teaching}
             alt="Code on a screen"
           />
-        </Grid>
-        <Grid
+        </Grid> */}
+      {/* <Grid
           item
           sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}
           sm={6}
@@ -90,9 +121,8 @@ function StackSection({ anchorEl, setAnchorEl }) {
             ))}
           </Grid>
           <Typography sx={{ mt: 2 }}>And much more...</Typography>
-        </Grid>
-      </Grid>
-    </SectionWrapper>
+        </Grid> */}
+    </Box>
   );
 }
 

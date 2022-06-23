@@ -1,11 +1,13 @@
 
 #imageContainer {
   width: 100%;
-  height: 50vh;
-  background: url('../../assets/images/codding-class.jpeg');
+  height: 65vh;
+  background: url('../../assets/images/meeting.jpeg');
   background-size: cover;
   position: relative;
   overflow: hidden;
+  background-position: center;
+
 }
 
 .overlay {
@@ -21,6 +23,10 @@
 .overlayTopLayer {
   position: absolute;
   z-index: 7;
-  top: 30%;
-  max-width: 500px;
+  top: 25%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
