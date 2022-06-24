@@ -16,8 +16,8 @@ export const theme = createTheme({
             }
           },
           '&.MuiButton-outlined': {
-            color: '#009be5',
-            borderColor: '#009be5',
+            color: '#322f2f',
+            borderColor: '#322f2f',
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.08)'
             }

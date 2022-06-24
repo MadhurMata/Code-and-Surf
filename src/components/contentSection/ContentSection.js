@@ -19,7 +19,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Look what we offer!" id={anchorEl} backgroundColor="#ead1b4">
+    <SectionWrapper title="Look what we offer!" backgroundColor="#ead1b4">
       <Grid
         container
         ref={ref}

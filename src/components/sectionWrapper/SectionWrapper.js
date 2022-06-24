@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-function SectionWrapper({ children, id, title, backgroundColor = 'none' }) {
+function SectionWrapper({ children, title, backgroundColor = 'none' }) {
   return (
     <Box
       sx={{
@@ -15,10 +15,7 @@ function SectionWrapper({ children, id, title, backgroundColor = 'none' }) {
       <Typography gutterBottom variant="h6" component="div" align="center">
         {title}
       </Typography>
-      <hr
-        style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }}
-        id={id}
-      />
+      <hr style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }} />
       {children}
     </Box>
   );

@@ -131,3 +131,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+@font-face {
+    font-family: 'gota-light';
+    src: url("assets/fonts/gota-light/Gota\ Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'GlacialIndifference';
+    src: url("assets/fonts/glacial-indifference/GlacialIndifference-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'gota';
+    src: url("assets/fonts/gota/Gota.otf") format("opentype");
+}

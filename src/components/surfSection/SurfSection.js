@@ -32,7 +32,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box id={anchorEl}>
+    <Box>
       <Box
         id="imageContainerSurfSection"
         sx={matches ? { marginTop: '50px' } : { marginTop: '100px' }}>
@@ -41,7 +41,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
             Surf experience
           </Typography>
           <hr
-            style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }}
+            style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }}
           />
           <Box ref={ref} sx={matches ? surfSectionStyles.text : surfSectionStyles.textSmallDevice}>
             <Typography sx={{ mb: 2 }} color="#fff">

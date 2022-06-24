@@ -72,14 +72,13 @@ function StackSection({ anchorEl, setAnchorEl }) {
   }, [inViewport]);
   return (
     <Box
-      id={anchorEl}
       container
       ref={ref}
       sx={matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer}>
       <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
         Our stack
       </Typography>
-      <hr style={{ backgroundColor: '#009be5', width: '100px', height: '3px', border: 'none' }} />
+      <hr style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }} />
       <Box item sx={sectionsStyles.fistSectionText}>
         <Typography sx={{ my: 2 }} color="#fff">
           {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare

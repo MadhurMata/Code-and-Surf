@@ -32,12 +32,12 @@ function Contact() {
     }
   };
   return (
-    <SectionWrapper title="Contact us for more information" backgroundColor="#f0f1ef">
+    <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
         container
         sx={matchesSize ? contactStyles.containerSmallDevices : contactStyles.container}>
         <Grid item sm={12} md={7}>
-          <Card id="contact" sx={{ padding: '20px 5px', backgroundColor: '#212529', opacity: 0.9 }}>
+          <Card sx={{ padding: '20px 5px', backgroundColor: '#212529', opacity: 0.9 }}>
             <CardContent>
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.

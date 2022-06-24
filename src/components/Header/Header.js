@@ -1,12 +1,14 @@
 import React from 'react';
 
+import './styles.css';
+
 import CommonButton from 'components/CommonButton/CommonButton';
 
 import { Link, List, Typography, Box, useTheme, useMediaQuery } from '@mui/material';
 
 import { mainNavbarItems } from './navbarItems';
 
-export const Header = ({ anchorEl, setAnchorEl }) => {
+export const Header = ({ anchorEl, scrollToElement }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -17,8 +19,7 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       right: 0,
       height: '70px',
       padding: '50px 50px 20px',
-      backgroundColor: '#fff',
-      maxWidth: '1400px',
+      backgroundColor: '#5FAAB2',
       margin: '0 auto',
       zIndex: 10
     },
@@ -31,10 +32,9 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
     link: {
       margin: '0 20px',
       fontWeight: 500,
-      color: '#7a7878',
+      color: '#e2e2e2',
       '&:hover': {
         color: '#322f2f',
-        textDecoration: 'none',
         cursor: 'pointer'
       },
       '&:selected': {
@@ -43,11 +43,10 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
     },
     linkSelected: {
       color: '#322f2f',
-      fontWeight: 500,
+      fontWeight: 700,
       borderBottom: '3px solid #1976d2',
       margin: '0 20px',
       '&:hover': {
-        textDecoration: 'none',
         cursor: 'pointer'
       }
     },
@@ -55,8 +54,10 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       fontSize: '1.8rem'
     },
     webButton: {
-      fontSize: '0.7rem',
-      color: 'red'
+      fontSize: '0.7rem'
+    },
+    logo: {
+      fontFamily: 'gota-light'
     }
   };
 
@@ -65,39 +66,44 @@ export const Header = ({ anchorEl, setAnchorEl }) => {
       <Box sx={headerStyles.innerBox}>
         <Box sx={{ width: '200px' }}>
           <Link sx={{ textDecoration: 'none' }} href="#firstSection">
-            <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
+            <div>
+              <h1 className="firstLineLogo">
+                {'<CODE />'}
+                <br></br>
+                <span className="subLineLogo">& Surf Bali</span>
+              </h1>
+            </div>
+            {/* <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
               {'<Code />'} <br></br>{' '}
-              <span style={{ fontSize: '1.2rem' }}>
+              <span className="subLineLogo" style={{ fontSize: '1.2rem' }}>
                 & Surf <span style={{ color: 'goldenrod' }}>Bali</span>
               </span>
-            </Typography>
+            </Typography> */}
           </Link>
         </Box>
 
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
           <Box display={{ xs: 'none', md: 'block' }}>
-            <List disablePadding>
+            <List disablePadding sx={{ display: 'flex' }}>
               {mainNavbarItems.map((item) => (
-                <Link
+                <Typography
                   sx={anchorEl === item.route ? headerStyles.linkSelected : headerStyles.link}
                   key={item.id}
-                  href={'#' + item.route}
-                  underline="hover"
-                  onClick={() => setAnchorEl(item.route)}>
+                  onClick={() => scrollToElement(item.route)}>
                   {item.label}
-                </Link>
+                </Typography>
               ))}
             </List>
           </Box>
           <Box>
-            <Link sx={{ textDecoration: 'none' }} href="#contact">
+            <Box sx={{ textDecoration: 'none' }} onClick={() => scrollToElement('contact')}>
               <CommonButton
                 sx={matches ? headerStyles.webButton : null}
-                variant="outlined"
+                variant="contained"
                 color="primary">
                 Contact us
               </CommonButton>
-            </Link>
+            </Box>
           </Box>
         </Box>
       </Box>

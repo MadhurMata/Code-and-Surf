@@ -1,4 +1,13 @@
-.logo {
-  width: 100px;
-  height: auto;
+.firstLineLogo {
+  font-family: 'gota-light', sans-serif;
+  font-size: 1.7rem;
+  line-height: 0.7;
+  letter-spacing: 1px;
+  color: #DFC576;
+}
+
+.subLineLogo {
+  font-family: 'GlacialIndifference', sans-serif;
+  font-size: 1rem;
+  margin-left: 4rem;
 }
