@@ -42,7 +42,8 @@ function Contact() {
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.
               </Typography>
-              <form>
+              <form name="contact" data-netlify="true" method="POST">
+                <input type="hidden" name="form-name" value="contact" />
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>
                     <TextField
