@@ -23,6 +23,16 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       margin: '0 auto',
       zIndex: 10
     },
+    wrapperSmallDevice: {
+      position: 'sticky',
+      top: 0,
+      right: 0,
+      height: '40px',
+      padding: '30px 20px 20px',
+      backgroundColor: '#5FAAB2',
+      margin: '0 auto',
+      zIndex: 10
+    },
     innerBox: {
       display: 'flex',
       flexDirection: 'row',
@@ -62,9 +72,9 @@ export const Header = ({ anchorEl, scrollToElement }) => {
   };
 
   return (
-    <Box sx={headerStyles.wrapper}>
+    <Box sx={matches ? headerStyles.wrapperSmallDevice : headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
-        <Box sx={{ width: '200px' }}>
+        <Box>
           <Link sx={{ textDecoration: 'none' }} href="#firstSection">
             <div>
               <h1 className="firstLineLogo">

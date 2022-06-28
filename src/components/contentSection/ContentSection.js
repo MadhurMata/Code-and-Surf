@@ -15,6 +15,15 @@ function ContentSection({ anchorEl, setAnchorEl }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
+  const contentSectionStyles = {
+    cardcontent: {
+      padding: 0,
+      '&:last-child': {
+        paddingBottom: 0
+      }
+    }
+  };
+
   useEffect(() => {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
@@ -27,7 +36,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
         alignItems="center"
         rowSpacing={{ xs: 2, sm: 2, md: 6 }}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        sx={{ padding: '50px', width: '100%', maxWidth: '1220px' }}>
+        sx={{ padding: '20px', width: '100%', maxWidth: '1220px' }}>
         {contentItems.map((item) => (
           <Grid item key={item.id}>
             {!matches ? (
@@ -48,17 +57,25 @@ function ContentSection({ anchorEl, setAnchorEl }) {
                 </CardContent>
               </Card>
             ) : (
-              <Card sx={{ maxWidth: 300, height: '130px' }}>
-                <Typography gutterBottom variant="h6" component="div" align="center">
-                  {item.label}
-                </Typography>
-                <CardContent sx={{ display: 'flex', flexDirection: 'row', padding: 0 }}>
-                  <CardMedia
-                    component="img"
-                    sx={{ margin: 'auto', height: 'auto', width: '50px' }}
-                    image={item.imgUrl}
-                    alt={item.label}
-                  />
+              <Card
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  maxWidth: 300,
+                  height: '130px',
+                  padding: '5px'
+                }}>
+                <CardMedia
+                  component="img"
+                  sx={{ margin: 'auto', height: 'auto', width: '50px' }}
+                  image={item.imgUrl}
+                  alt={item.label}
+                />
+                <CardContent sx={contentSectionStyles.cardcontent}>
+                  <Typography gutterBottom variant="h6" component="div" align="center">
+                    {item.label}
+                  </Typography>
                   <Typography sx={{ ml: 2 }} variant="body2" color="text.secondary">
                     {item.text}
                   </Typography>

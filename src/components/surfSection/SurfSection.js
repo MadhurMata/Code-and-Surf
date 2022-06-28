@@ -36,14 +36,14 @@ function SurfSection({ anchorEl, setAnchorEl }) {
       <Box
         id="imageContainerSurfSection"
         sx={matches ? { marginTop: '50px' } : { marginTop: '100px' }}>
-        <Box className="overlayTopLayerSurf" sx={matches ? { top: '50px' } : { top: '20px' }}>
+        <Box className="overlayTopLayerSurf" sx={matches ? { top: '20px' } : { top: '50px' }}>
           <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
             Surf experience
           </Typography>
           <hr
             style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }}
           />
-          <Box ref={ref} sx={matches ? surfSectionStyles.text : surfSectionStyles.textSmallDevice}>
+          <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
             <Typography sx={{ mb: 2 }} color="#fff">
               {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
             </Typography>
