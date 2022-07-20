@@ -39,6 +39,7 @@ function Contact() {
   };
 
   const handleSubmit = (event) => {
+    console.log('event', event);
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -59,7 +60,7 @@ function Contact() {
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.
               </Typography>
-              <form name="contact" data-netlify="true" method="POST" onSubmit={handleSubmit}>
+              <form name="contact" data-netlify="true" method="POST">
                 <input type="hidden" name="form-name" value="contact" />
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>

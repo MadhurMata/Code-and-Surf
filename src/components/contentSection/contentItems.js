@@ -1,9 +1,9 @@
-import codeImg from 'assets/images/pair-programing.jpg';
-import visaImg from 'assets/images/passport.svg';
-import acommodationImg from 'assets/images/accomodation.jpg';
-import workshopsImg from 'assets/images/pair-programing.jpg';
-import surfImg from 'assets/images/Surfer-rafiki.svg';
-import careerServiceImg from 'assets/images/interview.png';
+import codeImg from 'assets/images/cards/Code_SinFondo.png';
+import visaImg from 'assets/images/cards/Visa_SinFondo.png';
+import acommodationImg from 'assets/images/cards/accommodation_SinFondo.png';
+import workshopsImg from 'assets/images/cards/Wrokshops_SinFondo.png';
+import surfImg from 'assets/images/cards/SurfndYoga_SinFondo.png';
+import careerServiceImg from 'assets/images/cards/CareerService_SinFondo.png';
 
 export const contentItems = [
   {
@@ -15,8 +15,8 @@ export const contentItems = [
   {
     id: 1,
     imgUrl: surfImg,
-    label: 'Surf',
-    text: 'Learn/improve your surfing skills with our surf lessons.'
+    label: 'Surf / Yoga',
+    text: 'Learn/improve your surfing skills or practice yoga with our lessons.'
   },
   {
     id: 2,

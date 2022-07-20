@@ -56,7 +56,7 @@ function FirstSection() {
             </Box>
             <Box sx={{ maxWidth: '500px', margin: '0 auto' }}>
               <Typography color="#fff" sx={matches ? { mt: 2 } : { ml: 4 }}>
-                {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the island of Gods, Bali. Learn surfing in paradise.`}
+                {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the "Island of Gods", Bali. Learn surfing in paradise!`}
               </Typography>
             </Box>
           </Box>

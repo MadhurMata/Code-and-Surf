@@ -68,7 +68,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
                 }}>
                 <CardMedia
                   component="img"
-                  sx={{ margin: 'auto', height: 'auto', width: '50px' }}
+                  sx={{ margin: 'auto', height: 'auto', width: '100px' }}
                   image={item.imgUrl}
                   alt={item.label}
                 />
