@@ -5,8 +5,8 @@ import { Box, Link, Typography } from '@mui/material';
 import PrivacyModal from 'components/modals/privacyModal/PrivacyModal';
 
 import instagramLogo from 'assets/images/instagram.png';
-import facebookLogo from 'assets/images//facebook.png';
-import linkedinLogo from 'assets/images/linkedin.png';
+// import facebookLogo from 'assets/images//facebook.png';
+// import linkedinLogo from 'assets/images/linkedin.png';
 
 function Footer() {
   const [open, setOpen] = useState(false);

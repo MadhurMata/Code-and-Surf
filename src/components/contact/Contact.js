@@ -32,23 +32,6 @@ function Contact() {
     }
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-  };
-
-  const handleSubmit = (event) => {
-    console.log('event', event);
-    fetch('/?no-cache=1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state })
-    })
-      .then(this.handleSuccess)
-      .catch((error) => alert(error));
-    event.preventDefault();
-  };
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
