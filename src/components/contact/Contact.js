@@ -43,17 +43,21 @@ function Contact() {
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.
               </Typography>
-              <form
-                name="contact"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                method="POST">
+              <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="text" name="firstName" />
+                <input type="text" name="lastName" />
+                <input type="text" name="email" />
+                <input type="email" name="email" />
+                <textarea name="message"></textarea>
+              </form>
+              <form name="contact" method="POST">
                 <input type="hidden" name="form-name" value="contact" />
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
                       label="First Name"
+                      name="firstName"
                       placeholder="Enter first name"
                       variant="outlined"
                       fullWidth
@@ -64,6 +68,7 @@ function Contact() {
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
                       label="Last Name"
+                      name="lastName"
                       placeholder="Enter last name"
                       variant="outlined"
                       fullWidth
@@ -74,6 +79,7 @@ function Contact() {
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
                       label="Email"
+                      name="email"
                       placeholder="Enter email"
                       variant="outlined"
                       type="email"
@@ -85,6 +91,7 @@ function Contact() {
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
                       label="Message"
+                      name="message"
                       placeholder="Type your message here"
                       variant="outlined"
                       multiline
