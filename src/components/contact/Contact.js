@@ -54,6 +54,7 @@ function Contact() {
     e.preventDefault();
   };
 
+  console.log(firstName, lastName, message);
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
