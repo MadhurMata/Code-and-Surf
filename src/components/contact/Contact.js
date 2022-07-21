@@ -49,8 +49,8 @@ function Contact() {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': e.target.getAttribute('contact'),
-        ...{ email, firstName, lastName, message }
+        'form-name': 'contact',
+        ...{ email: 'gfhg', firstName: 'fgf', lastName: 'ghf', message: 'message' }
       })
     })
       .then(() => alert('Success!'))
@@ -76,7 +76,7 @@ function Contact() {
                 onSubmit={handleSubmit}>
                 <input type="hidden" name="form-name" value="contact" />
 
-                <p className="hidden">
+                <p hidden>
                   <label>
                     Don’t fill this out if you’re human: <input name="bot-field" />
                   </label>
