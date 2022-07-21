@@ -50,14 +50,12 @@ function Contact() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'contact',
-        ...{ email: 'gfhg', firstName: 'fgf', lastName: 'ghf', message: 'message' }
+        ...{ email: email, firstName: firstName, lastName: lastName, message: message }
       })
     })
       .then(() => alert('Success!'))
       .catch((error) => alert(error));
   };
-
-  console.log(email, firstName, lastName, message);
 
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
