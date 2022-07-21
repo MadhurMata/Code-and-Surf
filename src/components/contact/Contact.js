@@ -57,6 +57,8 @@ function Contact() {
       .catch((error) => alert(error));
   };
 
+  console.log(email, firstName, lastName, message);
+
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
