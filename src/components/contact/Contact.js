@@ -65,12 +65,6 @@ function Contact() {
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.
               </Typography>
-              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-                <input type="text" name="firstName" />
-                <input type="text" name="lastName" />
-                <input type="email" name="email" />
-                <textarea name="message"></textarea>
-              </form>
               <form onSubmit={handleSubmit}>
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>
