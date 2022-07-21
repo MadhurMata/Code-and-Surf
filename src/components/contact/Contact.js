@@ -43,13 +43,14 @@ function Contact() {
   };
 
   const handleSubmit = (e) => {
+    console.log('la vida', e);
     e.preventDefault();
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': e.target.getAttribute('contact'),
+        'form-name': 'contact',
         ...{ email, firstName, lastName, message }
       })
     })
