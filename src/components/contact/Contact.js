@@ -50,10 +50,21 @@ function Contact() {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'contact',
-        ...{ email: email, firstName: firstName, lastName: lastName, message: message }
+        ...{
+          email,
+          firstName,
+          lastName,
+          message
+        }
       })
     })
       .then(() => alert('Success!'))
+      .then(() => {
+        setEmail('');
+        setFirstName('');
+        setLastName('');
+        setMessage('');
+      })
       .catch((error) => alert(error));
   };
 
@@ -86,7 +97,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setFirstName({ firstName: e.target.value })}
+                      onChange={(e) => setFirstName(e.target.value)}
                       label="First Name"
                       name="firstName"
                       placeholder="Enter first name"
@@ -98,7 +109,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setLastName({ lastName: e.target.value })}
+                      onChange={(e) => setLastName(e.target.value)}
                       label="Last Name"
                       name="lastName"
                       placeholder="Enter last name"
@@ -110,7 +121,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setEmail({ email: e.target.value })}
+                      onChange={(e) => setEmail(e.target.value)}
                       label="Email"
                       name="email"
                       placeholder="Enter email"
@@ -123,7 +134,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setMessage({ message: e.target.value })}
+                      onChange={(e) => setMessage(e.target.value)}
                       label="Message"
                       name="message"
                       placeholder="Type your message here"
