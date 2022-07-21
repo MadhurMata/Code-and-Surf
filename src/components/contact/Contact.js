@@ -75,7 +75,6 @@ function Contact() {
                       onChange={(e) => setFirstName({ firstName: e.target.value })}
                       label="First Name"
                       name="firstName"
-                      value={firstName}
                       placeholder="Enter first name"
                       variant="outlined"
                       fullWidth
@@ -88,7 +87,6 @@ function Contact() {
                       onChange={(e) => setLastName({ lastName: e.target.value })}
                       label="Last Name"
                       name="lastName"
-                      value={lastName}
                       placeholder="Enter last name"
                       variant="outlined"
                       fullWidth
@@ -101,7 +99,6 @@ function Contact() {
                       onChange={(e) => setEmail({ email: e.target.value })}
                       label="Email"
                       name="email"
-                      value={email}
                       placeholder="Enter email"
                       variant="outlined"
                       type="email"
@@ -115,7 +112,6 @@ function Contact() {
                       onChange={(e) => setMessage({ message: e.target.value })}
                       label="Message"
                       name="message"
-                      value={message}
                       placeholder="Type your message here"
                       variant="outlined"
                       multiline
