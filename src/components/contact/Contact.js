@@ -46,7 +46,10 @@ function Contact() {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', email })
+      body: encode({
+        'form-name': e.target.getAttribute('contact'),
+        ...{ email, firstName, lastName, message }
+      })
     })
       .then(() => alert('Success!'))
       .catch((error) => alert(error));
@@ -54,7 +57,6 @@ function Contact() {
     e.preventDefault();
   };
 
-  console.log(firstName, lastName, message);
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
