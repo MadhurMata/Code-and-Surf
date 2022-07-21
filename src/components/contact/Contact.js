@@ -43,6 +43,8 @@ function Contact() {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -53,8 +55,6 @@ function Contact() {
     })
       .then(() => alert('Success!'))
       .catch((error) => alert(error));
-
-    e.preventDefault();
   };
 
   return (
