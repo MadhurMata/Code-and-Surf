@@ -43,14 +43,13 @@ function Contact() {
   };
 
   const handleSubmit = (e) => {
-    console.log('la vida', e);
     e.preventDefault();
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'contact',
+        'form-name': e.target.getAttribute('contact'),
         ...{ email, firstName, lastName, message }
       })
     })
@@ -74,8 +73,9 @@ function Contact() {
                 netlify-honeypot="bot-field"
                 name="contact"
                 method="post"
-                onSubmit="submit">
+                onSubmit={handleSubmit}>
                 <input type="hidden" name="form-name" value="contact" />
+
                 <p className="hidden">
                   <label>
                     Don’t fill this out if you’re human: <input name="bot-field" />
@@ -86,6 +86,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
+                      onChange={(e) => setFirstName({ firstName: e.target.value })}
                       label="First Name"
                       name="firstName"
                       placeholder="Enter first name"
@@ -97,6 +98,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
+                      onChange={(e) => setLastName({ lastName: e.target.value })}
                       label="Last Name"
                       name="lastName"
                       placeholder="Enter last name"
@@ -108,6 +110,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
+                      onChange={(e) => setEmail({ email: e.target.value })}
                       label="Email"
                       name="email"
                       placeholder="Enter email"
@@ -120,6 +123,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
+                      onChange={(e) => setMessage({ message: e.target.value })}
                       label="Message"
                       name="message"
                       placeholder="Type your message here"
