@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Box,
@@ -16,17 +16,7 @@ import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 import surfLesson from 'assets/images/surf-lesson.jpeg';
 import temple from 'assets/images/temple.jpeg';
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
-
 function Contact() {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [message, setMessage] = useState('');
   const theme = useTheme();
   const matchesSize = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -42,22 +32,6 @@ function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
-    console.log('la vida', e);
-    e.preventDefault();
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact',
-        ...{ email, firstName, lastName, message }
-      })
-    })
-      .then(() => alert('Success!'))
-      .catch((error) => alert(error));
-  };
-
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#f0f1ef">
       <Grid
@@ -69,14 +43,13 @@ function Contact() {
               <Typography variant="body2" component="p" color="#fff" mb={2}>
                 Fill up the form and our team will get back to you.
               </Typography>
-              <form data-netlify="true" name="contact" method="post" onSubmit={handleSubmit}>
+              <form data-netlify="true" name="contact" method="post" onSubmit="submit">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <Grid container spacing={1}>
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setFirstName({ firstName: e.target.value })}
                       label="First Name"
                       name="firstName"
                       placeholder="Enter first name"
@@ -88,7 +61,6 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setLastName({ lastName: e.target.value })}
                       label="Last Name"
                       name="lastName"
                       placeholder="Enter last name"
@@ -100,7 +72,6 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setEmail({ email: e.target.value })}
                       label="Email"
                       name="email"
                       placeholder="Enter email"
@@ -113,7 +84,6 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setMessage({ message: e.target.value })}
                       label="Message"
                       name="message"
                       placeholder="Type your message here"
