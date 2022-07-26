@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+
+import { useIntersection } from 'hooks/useIntersection';
 
 import './styles.css';
 
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-function FirstSection() {
+function FirstSection({ anchorEl, setAnchorEl }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const ref = useRef();
+  const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
 
   const sectionsStyles = {
     fistSectionContainer: {
@@ -30,9 +34,13 @@ function FirstSection() {
     }
   };
 
+  useEffect(() => {
+    if (inViewport && anchorEl) setAnchorEl(anchorEl);
+  }, [inViewport]);
+
   return (
     <>
-      <Box id="imageContainer">
+      <Box ref={ref} id="imageContainer">
         <Box className="overlayTopLayer">
           <Box
             sx={
@@ -48,7 +56,7 @@ function FirstSection() {
                   color: '#fff'
                 }}>
                 Become a{' '}
-                <span style={{ color: '#009be5', fontWeight: 900, fontSize: '2.5rem' }}>
+                <span style={{ color: '#DDC476', fontWeight: 900, fontSize: '2.5rem' }}>
                   web developer
                 </span>{' '}
                 & a ocean rider.

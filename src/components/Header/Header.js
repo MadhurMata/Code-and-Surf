@@ -54,7 +54,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
     linkSelected: {
       color: '#322f2f',
       fontWeight: 700,
-      borderBottom: '3px solid #1976d2',
+      borderBottom: '3px solid #DDC476',
       margin: '0 20px',
       '&:hover': {
         cursor: 'pointer'
@@ -75,20 +75,14 @@ export const Header = ({ anchorEl, scrollToElement }) => {
     <Box sx={matches ? headerStyles.wrapperSmallDevice : headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
         <Box>
-          <Link sx={{ textDecoration: 'none' }} href="#firstSection">
+          <Link sx={{ textDecoration: 'none' }} href="/">
             <div>
               <h1 className="firstLineLogo">
-                {'<CODE />'}
+                {'<code />'}
                 <br></br>
                 <span className="subLineLogo">& Surf Bali</span>
               </h1>
             </div>
-            {/* <Typography sx={matches ? headerStyles.titleSmall : null} variant="h1" color="primary">
-              {'<Code />'} <br></br>{' '}
-              <span className="subLineLogo" style={{ fontSize: '1.2rem' }}>
-                & Surf <span style={{ color: 'goldenrod' }}>Bali</span>
-              </span>
-            </Typography> */}
           </Link>
         </Box>
 
@@ -107,10 +101,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
           </Box>
           <Box>
             <Box sx={{ textDecoration: 'none' }} onClick={() => scrollToElement('contact')}>
-              <CommonButton
-                sx={matches ? headerStyles.webButton : null}
-                variant="contained"
-                color="primary">
+              <CommonButton sx={matches ? headerStyles.webButton : null} variant="contained">
                 Contact us
               </CommonButton>
             </Box>

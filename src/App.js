@@ -56,7 +56,7 @@ function App() {
         scrollToElement={(rute) => scrollToElement(rute)}
       />
 
-      <FirstSection />
+      <FirstSection anchorEl="firstSection" setAnchorEl={setAnchorEl} />
       <Box ref={boootcampContent}>
         <ContentSection anchorEl="boootcampContent" setAnchorEl={setAnchorEl} />
       </Box>

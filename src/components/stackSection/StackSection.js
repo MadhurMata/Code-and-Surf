@@ -35,7 +35,7 @@ function StackSection({ anchorEl, setAnchorEl }) {
       padding: '50px',
       maxWidth: '1400px',
       margin: '50px auto 0',
-      backgroundColor: '#92926e'
+      backgroundColor: '#CADBC0'
     },
     firstSecContSmallDevices: {
       display: 'flex',
@@ -75,12 +75,12 @@ function StackSection({ anchorEl, setAnchorEl }) {
       container
       ref={ref}
       sx={matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer}>
-      <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
+      <Typography gutterBottom variant="h6" component="div" align="center">
         Our stack
       </Typography>
-      <hr style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }} />
+      <hr style={{ backgroundColor: '#C4F7FD', width: '100px', height: '3px', border: 'none' }} />
       <Box item sx={sectionsStyles.fistSectionText}>
-        <Typography sx={{ my: 2 }} color="#fff">
+        <Typography sx={{ my: 2 }}>
           {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
           you to launch a new career in technology as a junior software developer.`}
         </Typography>
@@ -95,9 +95,7 @@ function StackSection({ anchorEl, setAnchorEl }) {
             </Grid>
           ))}
         </Grid>
-        <Typography sx={{ mt: 2 }} color="#fff">
-          And much more...
-        </Typography>
+        <Typography sx={{ mt: 2 }}>And much more...</Typography>
       </Box>
       <Box sx={sectionsStyles.imagesContainer}>
         <Box sx={sectionsStyles.img}>

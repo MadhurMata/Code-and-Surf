@@ -41,7 +41,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
             Surf experience
           </Typography>
           <hr
-            style={{ backgroundColor: '#1976d2', width: '100px', height: '3px', border: 'none' }}
+            style={{ backgroundColor: '#C4F7FD', width: '100px', height: '3px', border: 'none' }}
           />
           <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
             <Typography sx={{ mb: 2 }} color="#fff">

@@ -10,9 +10,9 @@ export const theme = createTheme({
           borderRadius: 8.5,
           textTransform: 'none',
           '&.MuiButton-contained': {
-            backgroundColor: '#009be5',
+            backgroundColor: '#DDC476',
             '&:hover': {
-              backgroundColor: '#006db3'
+              backgroundColor: '#caad53'
             }
           },
           '&.MuiButton-outlined': {

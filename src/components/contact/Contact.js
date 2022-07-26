@@ -182,7 +182,7 @@ function Contact() {
               right: '15%',
               width: '50%',
               height: '320px',
-              border: 'solid 4px #009be5',
+              border: 'solid 4px #DDC476',
               borderRadius: '20px',
               zIndex: 1
             }}></Box>
@@ -193,7 +193,7 @@ function Contact() {
               left: '15%',
               width: '75%',
               height: '250px',
-              border: 'solid 4px #009be5',
+              border: 'solid 4px #DDC476',
               borderRadius: '20px',
               zIndex: 1
             }}></Box>
