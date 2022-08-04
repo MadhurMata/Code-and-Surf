@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 
-import './styles.css';
-
 import { useIntersection } from 'hooks/useIntersection';
 
 import { Box, List, ListItem, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/system';
+import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
+
+import girlCoding from 'assets/images/girl-coding-stack.jpeg';
 
 function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
@@ -17,14 +18,12 @@ function SurfSection({ anchorEl, setAnchorEl }) {
     text: {
       maxWidth: '500px',
       margin: 'auto',
-      padding: '0 50px',
-      marginTop: '50px'
+      padding: '32px'
     },
     textSmallDevice: {
       maxWidth: '500px',
       margin: 'auto',
-      padding: '0 20px',
-      marginTop: '20px'
+      padding: '32px'
     }
   };
 
@@ -32,43 +31,53 @@ function SurfSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box>
-      <Box
-        id="imageContainerSurfSection"
-        sx={matches ? { marginTop: '50px' } : { marginTop: '100px' }}>
-        <Box className="overlayTopLayerSurf" sx={matches ? { top: '20px' } : { top: '50px' }}>
-          <Typography gutterBottom variant="h6" component="div" align="center" color="#fff">
-            Surf experience
+    <SectionWrapper title="Surf" backgroundColor="#ead1b4">
+      <Box>
+        <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
+          <Box>
+            <img
+              style={{ width: '100%', borderRadius: '21px' }}
+              src={girlCoding}
+              alt="Code on a screen"
+            />
+          </Box>
+          <Typography
+            sx={{
+              my: 2,
+              fontSize: '18px',
+              lineHeight: '150%',
+              fontWeight: '400'
+            }}>
+            {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
           </Typography>
-          <hr
-            style={{ backgroundColor: '#C4F7FD', width: '100px', height: '3px', border: 'none' }}
-          />
-          <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
-            <Typography sx={{ mb: 2 }} color="#fff">
-              {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
-            </Typography>
-            <List>
-              <ListItem sx={{ paddingTop: 0 }}>
-                <Typography color="#fff">3 weeks of surf lessons. 50+ hours</Typography>
-              </ListItem>
-              <ListItem sx={{ paddingTop: 0 }}>
-                <Typography color="#fff">Basic surf theory for beginners</Typography>
-              </ListItem>
-              <ListItem sx={{ paddingTop: 0 }}>
-                <Typography color="#fff">Lessons with surf instructor</Typography>
-              </ListItem>
-              <ListItem sx={{ paddingTop: 0 }}>
-                <Typography color="#fff">Surf guiding</Typography>
-              </ListItem>
-              <ListItem sx={{ paddingTop: 0 }}>
-                <Typography color="#fff">Trips to different spots</Typography>
-              </ListItem>
-            </List>
+          <Box
+            sx={{
+              backgroundColor: 'white !important',
+              p: 1,
+              fontSize: '18px',
+              lineHeight: '150%',
+              fontWeight: '400',
+              borderRadius: '4px'
+            }}>
+            <Typography>Surf package:</Typography>
+            <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
+              <span style={{ fontWeight: 'bold' }}>More than 50 hours</span> with experience
+              instructors
+            </li>
+            <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
+              <span style={{ fontWeight: 'bold' }}>Surf theory and practice.</span>
+            </li>
+            <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
+              Selection of the <span style={{ fontWeight: 'bold' }}>best spot to surf.</span>
+            </li>
+            <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
+              <span style={{ fontWeight: 'bold' }}>Surf guiding.</span>
+            </li>
           </Box>
         </Box>
         <Box className="overlaySurf"></Box>
       </Box>
-    </Box>
+    </SectionWrapper>
   );
 }
 

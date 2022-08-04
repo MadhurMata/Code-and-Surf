@@ -10,36 +10,36 @@ export const contentItems = [
     id: 0,
     imgUrl: codeImg,
     label: 'Code',
-    text: 'Learn all the skills, tools, and processes you need to become a web developer.'
+    text: 'Learn all the skills, tools, and processes needed to become a succesfull web developer.'
   },
   {
     id: 1,
     imgUrl: surfImg,
-    label: 'Surf / Yoga',
-    text: 'Learn/improve your surfing skills or practice yoga with our lessons.'
+    label: 'Surf or Yoga',
+    text: 'Learn or improve surfing or yoga on plenty of lessons with talented instructors.'
   },
   {
     id: 2,
     imgUrl: acommodationImg,
     label: 'Accommodation',
-    text: 'Included accommodation. Coliving Style where you can study and share your ideas with your classmates.'
+    text: 'Accomodation included. A private room for the duration of the course.'
   },
   {
     id: 3,
     imgUrl: careerServiceImg,
     label: 'Career Service',
-    text: 'Receive coaching from our Career Services to prepare you for tech interviews.'
+    text: 'Coaching sessions from our career services experts to assist you fon the next steps.'
   },
   {
     id: 4,
     imgUrl: visaImg,
     label: 'VISA',
-    text: 'VISA for the duration of the course + an extra month.'
+    text: 'We will tramit your VISA for the duration of the course plus an extra month.'
   },
   {
     id: 5,
     imgUrl: workshopsImg,
     label: 'Workshops',
-    text: 'A flexible curriculum where you can choose workshops and activities topics.'
+    text: ' We offer extra workshops and activities to personalise your curriculum to your needs.'
   }
 ];

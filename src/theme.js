@@ -6,7 +6,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: '0.875rem',
-          fontWeight: 600,
+          fontWeight: 400,
           borderRadius: 8.5,
           textTransform: 'none',
           '&.MuiButton-contained': {

@@ -6,6 +6,7 @@ import { Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import girlCoding from 'assets/images/girl-coding-stack.jpeg';
 
 import { Box } from '@mui/system';
+import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
 const techStack = [
   'JavaScript / TypeScript',
@@ -31,22 +32,16 @@ function StackSection({ anchorEl, setAnchorEl }) {
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      width: '70%',
-      padding: '50px',
-      maxWidth: '1400px',
-      margin: '50px auto 0',
-      backgroundColor: '#CADBC0'
+      padding: '32px',
+      maxWidth: '1400px'
     },
     firstSecContSmallDevices: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      width: '80%',
-      padding: '20px',
-      maxWidth: '1400px',
-      margin: '50px auto 0',
-      backgroundColor: '#92926e'
+      padding: '32px',
+      maxWidth: '1400px'
     },
     fistSectionText: {
       display: 'flex',
@@ -61,9 +56,6 @@ function StackSection({ anchorEl, setAnchorEl }) {
       justifyContent: 'space-between',
       borderRadius: '30px',
       backgroundColor: '#eae9e9'
-    },
-    imagesContainer: {
-      marginTop: '50px'
     }
   };
 
@@ -71,72 +63,46 @@ function StackSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <Box
-      container
-      ref={ref}
-      sx={matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer}>
-      <Typography gutterBottom variant="h6" component="div" align="center">
-        Our stack
-      </Typography>
-      <hr style={{ backgroundColor: '#C4F7FD', width: '100px', height: '3px', border: 'none' }} />
-      <Box item sx={sectionsStyles.fistSectionText}>
-        <Typography sx={{ my: 2 }}>
-          {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
-          you to launch a new career in technology as a junior software developer.`}
-        </Typography>
-        <Grid container rowSpacing={1} columnSpacing={1}>
-          {techStack.map((item) => (
-            <Grid item key={item}>
-              <Chip
-                label={item}
-                sx={{ color: '#fff', backgroundColor: '#5FAAB2' }}
-                variant="contained"
-              />
-            </Grid>
-          ))}
-        </Grid>
-        <Typography sx={{ mt: 2 }}>And much more...</Typography>
-      </Box>
-      <Box sx={sectionsStyles.imagesContainer}>
-        <Box sx={sectionsStyles.img}>
-          <img style={{ width: '100%' }} src={girlCoding} alt="Code on a screen" />
-        </Box>
-      </Box>
-      {/* <Grid
-          item
-          sx={{ borderTopLeftRadius: '30px' }}
-          sm={6}
-          display={{ xs: 'none', sm: 'block' }}>
+    <SectionWrapper title="Our stack" backgroundColor="#D19560">
+      <Box
+        container
+        ref={ref}
+        sx={
+          matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer
+        }>
+        <Box>
           <img
-            style={{
-              width: '100%',
-              height: '100%',
-              borderTopLeftRadius: '30px',
-              borderBottomLeftRadius: '30px'
-            }}
-            src={teaching}
+            style={{ width: '100%', borderRadius: '21px' }}
+            src={girlCoding}
             alt="Code on a screen"
           />
-        </Grid> */}
-      {/* <Grid
-          item
-          sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}
-          sm={6}
-          xs={12}>
-          <Typography sx={{ my: 2 }}>
+        </Box>
+        <Box item sx={sectionsStyles.fistSectionText}>
+          <Typography
+            sx={{
+              my: 2,
+              fontSize: '18px',
+              lineHeight: '150%',
+              fontWeight: '400',
+              color: 'white !important'
+            }}>
             {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
           you to launch a new career in technology as a junior software developer.`}
           </Typography>
           <Grid container rowSpacing={1} columnSpacing={1}>
             {techStack.map((item) => (
               <Grid item key={item}>
-                <Chip label={item} color="primary" variant="outlined" />
+                <Chip
+                  label={item}
+                  sx={{ color: 'black', backgroundColor: '#ead1b4', fontSize: '14px' }}
+                  variant="contained"
+                />
               </Grid>
             ))}
           </Grid>
-          <Typography sx={{ mt: 2 }}>And much more...</Typography>
-        </Grid> */}
-    </Box>
+        </Box>
+      </Box>
+    </SectionWrapper>
   );
 }
 

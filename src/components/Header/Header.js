@@ -64,7 +64,8 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       fontSize: '1.8rem'
     },
     webButton: {
-      fontSize: '0.7rem'
+      fontSize: '0.7rem',
+      color: 'black'
     },
     logo: {
       fontFamily: 'gota-light'

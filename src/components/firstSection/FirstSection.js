@@ -18,7 +18,7 @@ function FirstSection({ anchorEl, setAnchorEl }) {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '0 50px',
+      padding: '32px',
       maxWidth: '1400px'
     },
     fistSectionText: {
@@ -30,7 +30,7 @@ function FirstSection({ anchorEl, setAnchorEl }) {
     fistSectionTextSmall: {
       textAlign: 'center',
       justifyContent: 'center',
-      padding: '0 20px'
+      padding: '32px'
     }
   };
 
@@ -46,25 +46,22 @@ function FirstSection({ anchorEl, setAnchorEl }) {
             sx={
               matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionContainer
             }>
-            <Box sx={{ maxWidth: '440px', margin: '0 auto' }}>
+            <Box sx={{ maxWidth: '440px', textAlign: 'start' }}>
               <Typography
                 sx={{
-                  fontWeight: 700,
-                  fontSize: '2rem',
+                  fontWeight: 400,
+                  fontSize: '2.2rem',
                   lineHeight: 1.2,
                   letterSpacing: '0.03em',
                   color: '#fff'
                 }}>
-                Become a{' '}
-                <span style={{ color: '#DDC476', fontWeight: 900, fontSize: '2.5rem' }}>
-                  web developer
-                </span>{' '}
-                & a ocean rider.
+                <span style={{ color: '#DDC476', fontWeight: 900 }}>Become a web developer</span>{' '}
+                while surfing in paradise
               </Typography>
             </Box>
-            <Box sx={{ maxWidth: '500px', margin: '0 auto' }}>
-              <Typography color="#fff" sx={matches ? { mt: 2 } : { ml: 4 }}>
-                {`Launch your career as a Web Developer. Code web applications from scratch using the most modern technologies while living unique experiences on the "Island of Gods", Bali. Learn surfing in paradise!`}
+            <Box sx={{ maxWidth: '500px', textAlign: 'start' }}>
+              <Typography color="#fff" sx={{ mt: 2, fontSize: '20px' }}>
+                {`Launch your career as a Web Developer. Learn from the best to code web applications while living unique experiences on the Island of Gods, Bali.`}
               </Typography>
             </Box>
           </Box>

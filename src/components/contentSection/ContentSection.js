@@ -28,17 +28,17 @@ function ContentSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Look what we offer!" backgroundColor="#ead1b4">
+    <SectionWrapper title="What we offer" backgroundColor="#ead1b4">
       <Grid
         container
         ref={ref}
         justifyContent="center"
         alignItems="center"
+        sx={{ padding: '32px', maxWidth: '1220px' }}
         rowSpacing={{ xs: 2, sm: 2, md: 6 }}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        sx={{ padding: '20px', width: '100%', maxWidth: '1220px' }}>
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {contentItems.map((item) => (
-          <Grid item key={item.id}>
+          <Grid item key={item.id} sx={{ paddingLeft: '0 !important' }}>
             {!matches ? (
               <Card sx={{ maxWidth: 300, height: '300px' }}>
                 <CardMedia
@@ -63,20 +63,38 @@ function ContentSection({ anchorEl, setAnchorEl }) {
                   flexDirection: 'row',
                   alignItems: 'center',
                   maxWidth: 300,
-                  height: '130px',
-                  padding: '5px'
+                  height: '109px',
+                  padding: '8px'
                 }}>
                 <CardMedia
                   component="img"
-                  sx={{ margin: 'auto', height: 'auto', width: '100px' }}
+                  sx={{ margin: 'auto', height: '100px', width: 'auto' }}
                   image={item.imgUrl}
                   alt={item.label}
                 />
                 <CardContent sx={contentSectionStyles.cardcontent}>
-                  <Typography gutterBottom variant="h6" component="div" align="center">
+                  <Typography
+                    sx={{
+                      ml: '8px',
+                      fontSize: '20px',
+                      lineHeight: '150%',
+                      fontWeight: 'bold',
+                      mb: 0
+                    }}
+                    gutterBottom
+                    component="div"
+                    align="start">
                     {item.label}
                   </Typography>
-                  <Typography sx={{ ml: 2 }} variant="body2" color="text.secondary">
+                  <Typography
+                    sx={{
+                      ml: '8px',
+                      fontSize: '14px',
+                      lineHeight: '150%',
+                      fontWeight: 'regular',
+                      mb: 0
+                    }}
+                    color="text.secondary">
                     {item.text}
                   </Typography>
                 </CardContent>
