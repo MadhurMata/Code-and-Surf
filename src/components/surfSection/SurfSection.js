@@ -6,7 +6,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/system';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
-import girlCoding from 'assets/images/girl-coding-stack.jpeg';
+import girlCoding from 'assets/images/surf.jpeg';
 
 function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
@@ -36,7 +36,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
         <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
           <Box>
             <img
-              style={{ width: '100%', borderRadius: '21px' }}
+              style={{ width: '100%', height: '220px', borderRadius: '21px' }}
               src={girlCoding}
               alt="Code on a screen"
             />
