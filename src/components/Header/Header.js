@@ -18,7 +18,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       top: 0,
       right: 0,
       height: '70px',
-      padding: '50px 50px 20px',
+      padding: '50px 32px 20px',
       backgroundColor: '#5FAAB2',
       margin: '0 auto',
       zIndex: 10
@@ -65,7 +65,8 @@ export const Header = ({ anchorEl, scrollToElement }) => {
     },
     webButton: {
       fontSize: '0.7rem',
-      color: 'black'
+      color: 'black',
+      fontWeight: 'bold'
     },
     logo: {
       fontFamily: 'gota-light'
@@ -102,7 +103,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
           </Box>
           <Box>
             <Box sx={{ textDecoration: 'none' }} onClick={() => scrollToElement('contact')}>
-              <CommonButton sx={matches ? headerStyles.webButton : null} variant="contained">
+              <CommonButton sx={headerStyles.webButton} variant="contained">
                 Contact us
               </CommonButton>
             </Box>

@@ -35,12 +35,12 @@ function ContentSection({ anchorEl, setAnchorEl }) {
         justifyContent="center"
         alignItems="center"
         sx={{ padding: '32px', maxWidth: '1220px' }}
-        rowSpacing={{ xs: 2, sm: 2, md: 6 }}
+        rowSpacing={{ xs: 2, sm: 2, md: 3 }}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {contentItems.map((item) => (
-          <Grid item key={item.id} sx={{ paddingLeft: '0 !important' }}>
+          <Grid item key={item.id}>
             {!matches ? (
-              <Card sx={{ maxWidth: 300, height: '300px' }}>
+              <Card sx={{ maxWidth: 300, height: '270px' }}>
                 <CardMedia
                   component="img"
                   sx={{ margin: 'auto', maxHeight: '140px', width: 'auto' }}

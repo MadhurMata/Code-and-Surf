@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { useIntersection } from 'hooks/useIntersection';
 import { Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 
-import girlCoding from 'assets/images/girl-coding-stack.jpeg';
+import digitalNomad from 'assets/images/digital-nomad.jpeg';
 
 import { Box } from '@mui/system';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
@@ -24,14 +24,14 @@ function StackSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const sectionsStyles = {
     fistSectionContainer: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'row',
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'space-between',
       padding: '32px',
       maxWidth: '1400px'
     },
@@ -41,21 +41,19 @@ function StackSection({ anchorEl, setAnchorEl }) {
       justifyContent: 'center',
       alignItems: 'center',
       padding: '32px',
-      maxWidth: '1400px'
+      maxWidth: '500px'
     },
     fistSectionText: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
-      maxWidth: '500px'
+      justifyContent: 'flex-start',
+      maxWidth: '500px',
+      paddingLeft: '20px'
     },
     fistSectionTextSmall: {
-      padding: '20px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
-      borderRadius: '30px',
-      backgroundColor: '#eae9e9'
+      paddingTop: '16px'
     }
   };
 
@@ -65,22 +63,23 @@ function StackSection({ anchorEl, setAnchorEl }) {
   return (
     <SectionWrapper title="Our stack" backgroundColor="#D19560">
       <Box
-        container
         ref={ref}
         sx={
           matches ? sectionsStyles.firstSecContSmallDevices : sectionsStyles.fistSectionContainer
         }>
-        <Box>
+        <Box sx={matches ? { width: '100%' } : { width: '40%' }}>
           <img
             style={{ width: '100%', borderRadius: '21px' }}
-            src={girlCoding}
+            src={digitalNomad}
             alt="Code on a screen"
           />
         </Box>
-        <Box item sx={sectionsStyles.fistSectionText}>
+        <Box
+          item
+          sx={matches ? sectionsStyles.fistSectionTextSmall : sectionsStyles.fistSectionText}>
           <Typography
             sx={{
-              my: 2,
+              mb: 2,
               fontSize: '18px',
               lineHeight: '150%',
               fontWeight: '400',

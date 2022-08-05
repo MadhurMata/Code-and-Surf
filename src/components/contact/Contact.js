@@ -17,6 +17,8 @@ function Contact() {
 
   const contactStyles = {
     container: {
+      display: 'flex',
+      justifyContent: 'center',
       padding: '32px',
       maxWidth: '1400px'
     }
@@ -51,7 +53,7 @@ function Contact() {
   return (
     <SectionWrapper title="Want to know more? Contact us!" backgroundColor="#aec3bd">
       <Grid container sx={contactStyles.container}>
-        <Grid item sm={12} md={7}>
+        <Grid item sm={12} md={8}>
           <Card>
             <CardContent>
               <Typography variant="body2" component="p" mb={1}>
@@ -124,7 +126,11 @@ function Contact() {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    <Button sx={{ color: 'black' }} type="submit" variant="contained" fullWidth>
+                    <Button
+                      sx={{ color: 'black', fontWeight: 'bold' }}
+                      type="submit"
+                      variant="contained"
+                      fullWidth>
                       Submit
                     </Button>
                   </Grid>

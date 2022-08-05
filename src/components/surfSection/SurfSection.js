@@ -12,18 +12,36 @@ function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   const surfSectionStyles = {
+    fistSectionContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'space-between',
+      padding: '32px',
+      maxWidth: '1400px'
+    },
+    firstSecContSmallDevices: {
+      display: 'flex',
+      flexDirection: 'column-reverse',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '32px',
+      maxWidth: '500px'
+    },
     text: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
       maxWidth: '500px',
-      margin: 'auto',
-      padding: '32px'
+      paddingRight: '20px'
     },
     textSmallDevice: {
-      maxWidth: '500px',
-      margin: 'auto',
-      padding: '32px'
+      display: 'flex',
+      flexDirection: 'column',
+      paddingTop: '16px'
     }
   };
 
@@ -32,18 +50,16 @@ function SurfSection({ anchorEl, setAnchorEl }) {
   }, [inViewport]);
   return (
     <SectionWrapper title="Surf" backgroundColor="#ead1b4">
-      <Box>
+      <Box
+        sx={
+          matches
+            ? surfSectionStyles.firstSecContSmallDevices
+            : surfSectionStyles.fistSectionContainer
+        }>
         <Box ref={ref} sx={matches ? surfSectionStyles.textSmallDevice : surfSectionStyles.text}>
-          <Box>
-            <img
-              style={{ width: '100%', height: '220px', borderRadius: '21px' }}
-              src={girlCoding}
-              alt="Code on a screen"
-            />
-          </Box>
           <Typography
             sx={{
-              my: 2,
+              mb: 2,
               fontSize: '18px',
               lineHeight: '150%',
               fontWeight: '400'
@@ -74,6 +90,13 @@ function SurfSection({ anchorEl, setAnchorEl }) {
               <span style={{ fontWeight: 'bold' }}>Surf guiding.</span>
             </li>
           </Box>
+        </Box>
+        <Box sx={matches ? { width: '100%' } : { width: '40%' }}>
+          <img
+            style={{ width: '100%', borderRadius: '21px' }}
+            src={girlCoding}
+            alt="Code on a screen"
+          />
         </Box>
         <Box className="overlaySurf"></Box>
       </Box>
