@@ -23,7 +23,7 @@
 .overlayTopLayer {
   position: absolute;
   z-index: 7;
-  top: 8%;
+  top: 4%;
   left: 0;
   right: 0;
   margin-left: auto;
