@@ -97,7 +97,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      // onChange={(e) => setFirstName(e.target.value)}
                       label="First Name"
                       name="firstName"
                       placeholder="Enter first name"
@@ -109,7 +109,7 @@ function Contact() {
                   <Grid item xs={12} sm={6}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setLastName(e.target.value)}
+                      // onChange={(e) => setLastName(e.target.value)}
                       label="Last Name"
                       name="lastName"
                       placeholder="Enter last name"
@@ -121,7 +121,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setEmail(e.target.value)}
+                      // onChange={(e) => setEmail(e.target.value)}
                       label="Email"
                       name="email"
                       placeholder="Enter email"
@@ -134,7 +134,7 @@ function Contact() {
                   <Grid item xs={12}>
                     <TextField
                       sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-                      onChange={(e) => setMessage(e.target.value)}
+                      // onChange={(e) => setMessage(e.target.value)}
                       label="Message"
                       name="message"
                       placeholder="Type your message here"
