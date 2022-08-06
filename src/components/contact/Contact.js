@@ -23,10 +23,10 @@ import temple from 'assets/images/temple.jpeg';
 // };
 
 function Contact() {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [message, setMessage] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [message, setMessage] = useState('');
   const theme = useTheme();
   const matchesSize = useMediaQuery(theme.breakpoints.down('sm'));
 
