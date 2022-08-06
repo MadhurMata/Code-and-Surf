@@ -31,7 +31,7 @@ function Contact() {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'contact',
+        'form-name': 'contactForm',
         ...{
           email,
           firstName,
@@ -62,10 +62,10 @@ function Contact() {
               <form
                 data-netlify="true"
                 netlify-honeypot="bot-field"
-                name="contact"
+                name="contactForm"
                 method="post"
                 onSubmit={handleSubmit}>
-                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="form-name" value="contactForm" />
 
                 <p hidden>
                   <label>
