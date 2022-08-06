@@ -15,8 +15,8 @@ const techStack = [
   'React',
   'Node',
   'Express',
-  'Mongo DB',
-  `REST API's`,
+  'MongoDB',
+  `REST APIs`,
   'Git'
 ];
 
@@ -86,7 +86,7 @@ function StackSection({ anchorEl, setAnchorEl }) {
               color: 'white !important'
             }}>
             {`Learn full-stack development skills based on the "MERN stack". Our bootcamp will prepare
-          you to launch a new career in technology as a junior software developer.`}
+          you to launch a new career in tech as a junior software developer.`}
           </Typography>
           <Grid container rowSpacing={1} columnSpacing={1}>
             {techStack.map((item) => (

@@ -57,7 +57,7 @@ function Contact() {
           <Card>
             <CardContent>
               <Typography variant="body2" component="p" mb={1}>
-                Fill up the form and our team will get back to you.
+                Fill out the form and our team will get back to you.
               </Typography>
               <form
                 data-netlify="true"
@@ -139,68 +139,6 @@ function Contact() {
             </CardContent>
           </Card>
         </Grid>
-        {/* <Grid
-          item
-          sm={5}
-          display={{ xs: 'none', sm: 'none', md: 'block' }}
-          sx={{ position: 'relative' }}>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: '5%',
-              width: '60%',
-              minWidth: '300px',
-              zIndex: 5
-            }}>
-            <img
-              style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
-              src={temple}
-              alt="Coding class"
-            />
-          </Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '80px',
-              right: '15%',
-              width: '50%',
-              height: '320px',
-              border: 'solid 4px #DDC476',
-              borderRadius: '20px',
-              zIndex: 1
-            }}></Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              bottom: '100px',
-              left: '15%',
-              width: '75%',
-              height: '250px',
-              border: 'solid 4px #DDC476',
-              borderRadius: '20px',
-              zIndex: 1
-            }}></Box>
-          <Box
-            sx={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              width: '60%',
-              minWidth: '300px',
-              zIndex: 3
-            }}>
-            <img
-              style={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: '20px'
-              }}
-              src={surfLesson}
-              alt="People surfing"
-            />
-          </Box>
-        </Grid> */}
       </Grid>
     </SectionWrapper>
   );

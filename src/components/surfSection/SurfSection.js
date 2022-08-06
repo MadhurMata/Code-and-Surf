@@ -64,7 +64,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
               lineHeight: '150%',
               fontWeight: '400'
             }}>
-            {`It is not all about coding, enjoy outdors exercise, and have tons of fun, during our surf lessons. Understand the theory behind surfing, practice, practice, and more practice improving your surf skills surrounded by good vibes.`}
+            {`It is not all about coding! While you are here, enjoy the outdoors exercise, and have tons of fun during our surf and yoga lessons. Learn the theory behind surfing, and practice, practice, practice to improve your surf skills all while surrounded by good vibes.`}
           </Typography>
           <Box
             sx={{
@@ -77,14 +77,14 @@ function SurfSection({ anchorEl, setAnchorEl }) {
             }}>
             <Typography>Surf package:</Typography>
             <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
-              <span style={{ fontWeight: 'bold' }}>More than 50 hours</span> with experience
-              instructors
+              <span style={{ fontWeight: 'bold' }}>More than 50 hours of coaching</span> with
+              experienced instructors
             </li>
             <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
               <span style={{ fontWeight: 'bold' }}>Surf theory and practice.</span>
             </li>
             <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
-              Selection of the <span style={{ fontWeight: 'bold' }}>best spot to surf.</span>
+              Selection of the <span style={{ fontWeight: 'bold' }}>best spots to surf.</span>
             </li>
             <li style={{ marginLeft: '16px', paddingLeft: '16px' }}>
               <span style={{ fontWeight: 'bold' }}>Surf guiding.</span>

@@ -1,7 +1,7 @@
 export const mainNavbarItems = [
   {
     id: 0,
-    label: 'Boootcamp content',
+    label: 'What we offer',
     route: 'boootcampContent'
   },
   {

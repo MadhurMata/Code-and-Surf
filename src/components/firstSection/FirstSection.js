@@ -42,13 +42,13 @@ function FirstSection({ anchorEl, setAnchorEl }) {
                   letterSpacing: '0.03em',
                   color: '#fff'
                 }}>
-                <span style={{ color: '#DDC476', fontWeight: 900 }}>Become a web developer</span>{' '}
+                Become a<span style={{ color: '#DDC476', fontWeight: 900 }}> web developer </span>
                 while surfing in paradise
               </Typography>
             </Box>
             <Box sx={{ maxWidth: '500px', textAlign: 'start' }}>
               <Typography color="#fff" sx={{ mt: 2, fontSize: '20px' }}>
-                {`Launch your career as a Web Developer. Learn from the best to code web applications while living unique experiences on the Island of Gods, Bali.`}
+                {`Launch your career as a Web Developer. Learn from the best to code web applications while living on Bali, the Island of Gods, Bali.`}
               </Typography>
             </Box>
           </Box>
