@@ -16,11 +16,11 @@ import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 import surfLesson from 'assets/images/surf-lesson.jpeg';
 import temple from 'assets/images/temple.jpeg';
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
+// const encode = (data) => {
+//   return Object.keys(data)
+//     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+//     .join('&');
+// };
 
 function Contact() {
   const [email, setEmail] = useState('');
@@ -42,31 +42,31 @@ function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact',
-        ...{
-          email,
-          firstName,
-          lastName,
-          message
-        }
-      })
-    })
-      .then(() => alert('Success!'))
-      .then(() => {
-        setEmail('');
-        setFirstName('');
-        setLastName('');
-        setMessage('');
-      })
-      .catch((error) => alert(error));
-  };
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: encode({
+  //       'form-name': 'contact',
+  //       ...{
+  //         email,
+  //         firstName,
+  //         lastName,
+  //         message
+  //       }
+  //     })
+  //   })
+  //     .then(() => alert('Success!'))
+  //     .then(() => {
+  //       setEmail('');
+  //       setFirstName('');
+  //       setLastName('');
+  //       setMessage('');
+  //     })
+  //     .catch((error) => alert(error));
+  // };
 
   return (
     <SectionWrapper title="Want to know more?" backgroundColor="#aec3bd">
@@ -80,13 +80,13 @@ function Contact() {
                 Fill up the form and our team will get back to you.
               </Typography>
               <form
-                data-netlify="true"
-                netlify-honeypot="bot-field"
+                // data-netlify="true"
+                // netlify-honeypot="bot-field"
                 name="contact"
                 method="post"
-                onSubmit={handleSubmit}>
-                <input type="hidden" name="form-name" value="contact" />
-
+                // onSubmit={handleSubmit}>
+                // {/* <input type="hidden" name="form-name" value="contact" /> */}
+              >
                 <p hidden>
                   <label>
                     Don’t fill this out if you’re human: <input name="bot-field" />
