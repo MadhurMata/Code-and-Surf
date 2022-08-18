@@ -17,7 +17,8 @@ const techStack = [
   'Express',
   'MongoDB',
   `REST APIs`,
-  'Git'
+  'Git',
+  '...'
 ];
 
 function StackSection({ anchorEl, setAnchorEl }) {
