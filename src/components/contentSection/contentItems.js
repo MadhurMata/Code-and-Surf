@@ -10,7 +10,7 @@ export const contentItems = [
     id: 0,
     imgUrl: codeImg,
     label: 'Code',
-    text: 'Learn all the skills, tools, and processes you need to become a successfull web developer.'
+    text: 'Learn all the skills, tools, and processes you need to become a successful web developer.'
   },
   {
     id: 1,
