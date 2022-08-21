@@ -11,7 +11,12 @@ function EmailRequestModal({ open, onClose, title, setOpen, setErrorMessage }) {
         onClose={onClose}
         title={title}
         content={
-          <EmailRequestForm onClose={onClose} setErrorMessage={setErrorMessage} setOpen={setOpen} />
+          <EmailRequestForm
+            title={title}
+            onClose={onClose}
+            setErrorMessage={setErrorMessage}
+            setOpen={setOpen}
+          />
         }></BasicModal>
     </>
   );
