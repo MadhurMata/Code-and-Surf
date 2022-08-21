@@ -32,7 +32,7 @@ function Contact() {
 
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'applation/x-wwwwww-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'contact',
         ...{
@@ -43,7 +43,14 @@ function Contact() {
         }
       })
     })
-      .then(() => setSuccessMessage(true))
+      .then((response) => {
+        if (!response.ok) {
+          setErrorMessage(true);
+          throw new Error('Not 2xx response', { cause: response });
+        } else {
+          setSuccessMessage(true);
+        }
+      })
       .then(() => {
         setEmail('');
         setFirstName('');

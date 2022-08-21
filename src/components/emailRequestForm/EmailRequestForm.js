@@ -26,6 +26,14 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage, title }) {
         }
       })
     })
+      .then((response) => {
+        if (!response.ok) {
+          setErrorMessage(true);
+          throw new Error('Not 2xx response', { cause: response });
+        } else {
+          setOpen(true);
+        }
+      })
       .then(() => setOpen(true))
       .then(() => {
         onClose();
