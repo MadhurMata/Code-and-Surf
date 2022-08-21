@@ -9,7 +9,7 @@ const encode = (data) => {
 
 function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,15 +21,15 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
         'form-name': 'contact',
         ...{
           email,
-          name
+          firstName
         }
       })
     })
       .then(() => setOpen(true))
       .then(() => {
         onClose();
+        setFirstName('');
         setEmail('');
-        setName('');
       })
       .catch(() => setErrorMessage(true));
   };
@@ -51,9 +51,9 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
         <Grid item xs={12}>
           <TextField
             sx={{ backgroundColor: '#fff', borderRadius: '4px' }}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
             label="Name"
-            name="name"
+            name="firstName"
             placeholder="Enter name"
             variant="outlined"
             fullWidth
