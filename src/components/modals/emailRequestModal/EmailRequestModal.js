@@ -3,14 +3,16 @@ import EmailRequestForm from 'components/emailRequestForm/EmailRequestForm';
 
 import React from 'react';
 
-function EmailRequestModal({ open, onClose, title, setOpen }) {
+function EmailRequestModal({ open, onClose, title, setOpen, setErrorMessage }) {
   return (
     <>
       <BasicModal
         open={open}
         onClose={onClose}
         title={title}
-        content={<EmailRequestForm onClose={onClose} setOpen={setOpen} />}></BasicModal>
+        content={
+          <EmailRequestForm onClose={onClose} setErrorMessage={setErrorMessage} setOpen={setOpen} />
+        }></BasicModal>
     </>
   );
 }

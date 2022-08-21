@@ -3,7 +3,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import CommonButton from 'components/CommonButton/CommonButton';
 import React from 'react';
 
-function ActionButton() {
+function ActionButton({ setOpen }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -30,15 +30,9 @@ function ActionButton() {
     <Box sx={actionButtonStyles.acttionContainer}>
       <Typography sx={actionButtonStyles.actionText}>Coming soon</Typography>
       <Box sx={{ textDecoration: 'none' }}>
-        {matches ? (
-          <CommonButton sx={actionButtonStyles.actionButton} variant="contained">
-            Waiting List
-          </CommonButton>
-        ) : (
-          <CommonButton sx={actionButtonStyles.actionButton} variant="contained">
-            Join the waiting List
-          </CommonButton>
-        )}
+        <CommonButton onClick={setOpen} sx={actionButtonStyles.actionButton} variant="contained">
+          {matches ? 'Waiting List' : 'Join the Waiting List'}
+        </CommonButton>
       </Box>
     </Box>
   );

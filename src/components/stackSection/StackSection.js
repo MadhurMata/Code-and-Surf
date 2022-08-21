@@ -31,6 +31,7 @@ function StackSection({ anchorEl, setAnchorEl }) {
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = useState(false);
   const [successMesage, setSuccessMessage] = useState(false);
+  const [errorMesage, setErrorMessage] = useState(false);
 
   const sectionsStyles = {
     fistSectionContainer: {
@@ -120,17 +121,29 @@ function StackSection({ anchorEl, setAnchorEl }) {
             </CommonButton>
           </Box>
         </Box>
-        <EmailRequestModal
-          open={open}
-          title="Request course content"
-          onClose={() => setOpen(false)}
-          setOpen={(open) => setSuccessMessage(open)}
-        />
-        <BasicModal
-          open={successMesage}
-          onClose={() => setSuccessMessage(false)}
-          title="Request course content"
-          content={`Course content on it's way!`}></BasicModal>
+        <>
+          <EmailRequestModal
+            open={open}
+            title="Request course content"
+            onClose={() => setOpen(false)}
+            setOpen={(open) => setSuccessMessage(open)}
+            setErrorMessage={(open) => setErrorMessage(open)}
+          />
+          <BasicModal
+            open={successMesage}
+            onClose={() => setSuccessMessage(false)}
+            title="Request course content"
+            content={`Course content on it's way!`}
+          />
+          <BasicModal
+            open={errorMesage}
+            onClose={() => setErrorMessage(false)}
+            title="Request course content"
+            content={
+              'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
+            }
+          />
+        </>
       </Box>
     </SectionWrapper>
   );

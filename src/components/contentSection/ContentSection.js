@@ -82,8 +82,7 @@ function ContentSection({ anchorEl, setAnchorEl }) {
                       mb: 0
                     }}
                     gutterBottom
-                    component="div"
-                    align="start">
+                    component="div">
                     {item.label}
                   </Typography>
                   <Typography

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 
@@ -7,12 +7,17 @@ import './styles.css';
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@emotion/react';
 import ActionButton from 'components/actionButton/ActionButton';
+import EmailRequestModal from 'components/modals/emailRequestModal/EmailRequestModal';
+import BasicModal from 'components/basicModal/BasicModal';
 
 function FirstSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
   const theme = useTheme();
   const matchesSmall = useMediaQuery(theme.breakpoints.down('400'));
+  const [open, setOpen] = useState(false);
+  const [successMesage, setSuccessMessage] = useState(false);
+  const [errorMesage, setErrorMessage] = useState(false);
 
   const sectionsStyles = {
     fistSectionContainer: {
@@ -57,9 +62,32 @@ function FirstSection({ anchorEl, setAnchorEl }) {
               <Typography color="#fff" sx={{ mt: 2, fontSize: '20px' }}>
                 {`Launch your career as a Web Developer. Learn from the best to code web applications while living on Bali, the Island of Gods.`}
               </Typography>
-              <ActionButton />
+              <ActionButton setOpen={() => setOpen(true)} />
             </Box>
           </Box>
+          <>
+            <EmailRequestModal
+              open={open}
+              title="Waiting List"
+              onClose={() => setOpen(false)}
+              setOpen={(open) => setSuccessMessage(open)}
+              setErrorMessage={(open) => setErrorMessage(open)}
+            />
+            <BasicModal
+              open={successMesage}
+              onClose={() => setSuccessMessage(false)}
+              title="Waiting List"
+              content={`A member of our team will reach you as soon as possible`}
+            />
+            <BasicModal
+              open={errorMesage}
+              onClose={() => setErrorMessage(false)}
+              title="Waiting List"
+              content={
+                'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
+              }
+            />
+          </>
         </Box>
         <Box className="overlay"></Box>
       </Box>

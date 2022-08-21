@@ -16,6 +16,7 @@ function Contact() {
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
   const [successMesage, setSuccessMessage] = useState(false);
+  const [errorMesage, setErrorMessage] = useState(false);
 
   const contactStyles = {
     container: {
@@ -49,7 +50,7 @@ function Contact() {
         setLastName('');
         setMessage('');
       })
-      .catch((error) => alert(error));
+      .catch((error) => setErrorMessage(true));
   };
 
   return (
@@ -145,6 +146,13 @@ function Contact() {
           onClose={() => setSuccessMessage(false)}
           title="Contact form request"
           content={'A member of our team will reach you as soon as possible'}></BasicModal>
+        <BasicModal
+          open={errorMesage}
+          onClose={() => setErrorMessage(false)}
+          title="Contact form request"
+          content={
+            'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
+          }></BasicModal>
       </Grid>
     </SectionWrapper>
   );

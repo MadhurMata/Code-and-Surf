@@ -7,7 +7,7 @@ const encode = (data) => {
     .join('&');
 };
 
-function EmailRequestForm({ onClose, setOpen }) {
+function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
@@ -31,7 +31,7 @@ function EmailRequestForm({ onClose, setOpen }) {
         setEmail('');
         setName('');
       })
-      .catch((error) => alert(error));
+      .catch((error) => setErrorMessage(true));
   };
   return (
     <form
