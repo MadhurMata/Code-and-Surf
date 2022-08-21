@@ -36,7 +36,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
     innerBox: {
       display: 'flex',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       alignItems: 'baseline'
     },
     link: {
@@ -64,7 +64,6 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       fontSize: '1.8rem'
     },
     webButton: {
-      fontSize: '0.7rem',
       color: 'black',
       fontWeight: 'bold'
     },

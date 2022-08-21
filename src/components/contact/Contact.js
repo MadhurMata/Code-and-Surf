@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Button, Card, CardContent, Grid, TextField, Typography } from '@mui/material';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
+import BasicModal from 'components/basicModal/BasicModal';
 
 const encode = (data) => {
   return Object.keys(data)
@@ -14,6 +15,7 @@ function Contact() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
+  const [successMesage, setSuccessMessage] = useState(false);
 
   const contactStyles = {
     container: {
@@ -40,7 +42,7 @@ function Contact() {
         }
       })
     })
-      .then(() => alert('Success!'))
+      .then(() => setSuccessMessage(true))
       .then(() => {
         setEmail('');
         setFirstName('');
@@ -138,6 +140,11 @@ function Contact() {
             </CardContent>
           </Card>
         </Grid>
+        <BasicModal
+          open={successMesage}
+          onClose={() => setSuccessMessage(false)}
+          title="Contact form request"
+          content={'A member of our team will reach you as soon as possible'}></BasicModal>
       </Grid>
     </SectionWrapper>
   );

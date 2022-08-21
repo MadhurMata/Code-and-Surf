@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { useIntersection } from 'hooks/useIntersection';
 import { Chip, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
@@ -7,6 +7,9 @@ import digitalNomad from 'assets/images/digital-nomad.jpeg';
 
 import { Box } from '@mui/system';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
+import CommonButton from 'components/CommonButton/CommonButton';
+import EmailRequestModal from 'components/modals/emailRequestModal/EmailRequestModal';
+import BasicModal from 'components/basicModal/BasicModal';
 
 const techStack = [
   'JavaScript / TypeScript',
@@ -26,6 +29,8 @@ function StackSection({ anchorEl, setAnchorEl }) {
   const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
+  const [open, setOpen] = useState(false);
+  const [successMesage, setSuccessMessage] = useState(false);
 
   const sectionsStyles = {
     fistSectionContainer: {
@@ -55,6 +60,12 @@ function StackSection({ anchorEl, setAnchorEl }) {
       display: 'flex',
       flexDirection: 'column',
       paddingTop: '16px'
+    },
+    webButton: {
+      width: 'fit-content',
+      marginTop: '16px',
+      color: 'black',
+      fontWeight: 'bold'
     }
   };
 
@@ -100,7 +111,26 @@ function StackSection({ anchorEl, setAnchorEl }) {
               </Grid>
             ))}
           </Grid>
+          <Box sx={{ margin: 'auto' }}>
+            <CommonButton
+              sx={sectionsStyles.webButton}
+              onClick={() => setOpen(true)}
+              variant="contained">
+              Get course content
+            </CommonButton>
+          </Box>
         </Box>
+        <EmailRequestModal
+          open={open}
+          title="Request course content"
+          onClose={() => setOpen(false)}
+          setOpen={(open) => setSuccessMessage(open)}
+        />
+        <BasicModal
+          open={successMesage}
+          onClose={() => setSuccessMessage(false)}
+          title="Request course content"
+          content={`Course content on it's way!`}></BasicModal>
       </Box>
     </SectionWrapper>
   );

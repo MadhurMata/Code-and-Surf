@@ -5,9 +5,10 @@ export const modalStyles = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 300,
-    bgcolor: 'background.paper',
+    bgcolor: '#ead1b4',
     boxShadow: 24,
-    p: 4
+    p: 4,
+    borderRadius: '20px'
   },
   inputFields: {
     display: 'flex',

@@ -3,8 +3,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Modal } from '@mui/material';
-
-import CommonButton from '../CommonButton/CommonButton';
+import CloseIcon from '@mui/icons-material/Close';
 
 import { modalStyles } from './styles';
 
@@ -12,16 +11,18 @@ const BasicModal = ({ open, onClose, title, subTitle, content, onSubmit }) => {
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={modalStyles.wrapper}>
-        <Typography variant="h6" component="h2">
-          {title}
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" component="h2">
+            {title}
+          </Typography>
+          <CloseIcon sx={{ cursor: 'pointer' }} onClick={onClose}></CloseIcon>
+        </Box>
         <Typography sx={{ mt: 2 }}>{subTitle}</Typography>
         {content}
         <Box sx={modalStyles.buttons}>
-          <CommonButton variant="contained" onClick={onSubmit}>
+          {/* <CommonButton variant="contained" onClick={onSubmit}>
             Submit
-          </CommonButton>
-          <CommonButton onClick={onClose}>Cancel</CommonButton>
+          </CommonButton> */}
         </Box>
       </Box>
     </Modal>
