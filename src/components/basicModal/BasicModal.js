@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 import { modalStyles } from './styles';
 
-const BasicModal = ({ open, onClose, title, subTitle, content, onSubmit }) => {
+const BasicModal = ({ open, onClose, title, subTitle, content }) => {
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={modalStyles.wrapper}>

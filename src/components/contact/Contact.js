@@ -50,7 +50,7 @@ function Contact() {
         setLastName('');
         setMessage('');
       })
-      .catch((error) => setErrorMessage(true));
+      .catch(() => setErrorMessage(true));
   };
 
   return (

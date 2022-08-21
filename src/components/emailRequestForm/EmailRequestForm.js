@@ -31,7 +31,7 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
         setEmail('');
         setName('');
       })
-      .catch((error) => setErrorMessage(true));
+      .catch(() => setErrorMessage(true));
   };
   return (
     <form
