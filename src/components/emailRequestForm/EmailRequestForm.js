@@ -18,7 +18,7 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        'form-name': 'emailRequest',
+        'form-name': 'contact',
         ...{
           email,
           name
@@ -37,10 +37,10 @@ function EmailRequestForm({ onClose, setOpen, setErrorMessage }) {
     <form
       data-netlify="true"
       netlify-honeypot="bot-field"
-      name="emailRequest"
+      name="contact"
       method="post"
       onSubmit={handleSubmit}>
-      <input type="hidden" name="form-name" value="emailRequest" />
+      <input type="hidden" name="form-name" value="contact" />
 
       <p hidden>
         <label>
