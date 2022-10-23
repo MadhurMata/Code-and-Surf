@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 
 import { Box, Link, Typography } from '@mui/material';
 
@@ -25,12 +26,24 @@ function Footer() {
       height: 'auto'
     }
   };
+
+  const instagramClick = () => {
+    ReactGA.event({
+      category: 'Redirect button',
+      action: 'Instagram click',
+      label: 'Instagram'
+    });
+  };
+
   return (
     <Box sx={footerStyles.wrapper}>
       <Typography variant="body2" color="text.secondary">
         Copyright 2022 &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp;{' '}
         <span>
-          <Link target="_blank" href="https://www.instagram.com/codesurfbali">
+          <Link
+            onClick={instagramClick}
+            target="_blank"
+            href="https://www.instagram.com/codesurfbali">
             <img style={{ width: '15px', margin: '0 5px' }} src={instagramLogo} alt="Instagram" />
           </Link>
           {/* <Link target="_blank" href="http://www.google.com">
