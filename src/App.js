@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-// import ReactGA from 'react-ga';
+import React, { useState, useRef, useEffect } from 'react';
+import ReactGA from 'react-ga';
 
 import { Header } from 'components/Header/Header';
 import FirstSection from 'components/firstSection/FirstSection';
@@ -20,13 +20,13 @@ function App() {
   const surfPackage = useRef(null);
   const contact = useRef(null);
 
-  // const setGA = () => {
-  //   ReactGA.pageview(window.location.pathname);
-  // };
+  const setGA = () => {
+    ReactGA.pageview(window.location.pathname);
+  };
 
-  // useEffect(() => {
-  //   setGA();
-  // }, []);
+  useEffect(() => {
+    setGA();
+  }, []);
 
   const scrollToElement = (ref) => {
     switch (ref) {
