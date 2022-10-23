@@ -19,11 +19,7 @@ const BasicModal = ({ open, onClose, title, subTitle, content }) => {
         </Box>
         <Typography sx={{ mt: 2 }}>{subTitle}</Typography>
         {content}
-        <Box sx={modalStyles.buttons}>
-          {/* <CommonButton variant="contained" onClick={onSubmit}>
-            Submit
-          </CommonButton> */}
-        </Box>
+        <Box sx={modalStyles.buttons}></Box>
       </Box>
     </Modal>
   );
