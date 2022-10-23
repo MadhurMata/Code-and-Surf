@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import ReactGA from 'react-ga';
+import React, { useState, useRef } from 'react';
+// import ReactGA from 'react-ga';
 
 import { Header } from 'components/Header/Header';
 import FirstSection from 'components/firstSection/FirstSection';
@@ -10,8 +10,8 @@ import Contact from 'components/contact/Contact';
 import Footer from 'components/Footer/Footer';
 import { Box } from '@mui/material';
 
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
-console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
+// ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
+// console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
 
 function App() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,13 +20,13 @@ function App() {
   const surfPackage = useRef(null);
   const contact = useRef(null);
 
-  const setGA = () => {
-    ReactGA.pageview(window.location.pathname);
-  };
+  // const setGA = () => {
+  //   ReactGA.pageview(window.location.pathname);
+  // };
 
-  useEffect(() => {
-    setGA();
-  }, []);
+  // useEffect(() => {
+  //   setGA();
+  // }, []);
 
   const scrollToElement = (ref) => {
     switch (ref) {
