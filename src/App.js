@@ -11,7 +11,6 @@ import Footer from 'components/Footer/Footer';
 import { Box } from '@mui/material';
 
 ReactGA.initialize('G-01VMK6QMF4');
-console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
 
 function App() {
   const [anchorEl, setAnchorEl] = useState(null);

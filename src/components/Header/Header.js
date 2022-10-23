@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 import './styles.css';
 
@@ -72,6 +73,15 @@ export const Header = ({ anchorEl, scrollToElement }) => {
     }
   };
 
+  const contactClick = () => {
+    console.log('click');
+    ReactGA.event({
+      category: 'Redirect button',
+      action: 'Instagram click',
+      label: 'Instagram'
+    });
+  };
+
   return (
     <Box sx={matches ? headerStyles.wrapperSmallDevice : headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
@@ -101,7 +111,11 @@ export const Header = ({ anchorEl, scrollToElement }) => {
             </List>
           </Box>
           <Box>
-            <Box sx={{ textDecoration: 'none' }} onClick={() => scrollToElement('contact')}>
+            <Box
+              sx={{ textDecoration: 'none' }}
+              onClick={() => {
+                contactClick(), scrollToElement('contact');
+              }}>
               <CommonButton sx={headerStyles.webButton} variant="contained">
                 Contact us
               </CommonButton>
