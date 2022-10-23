@@ -10,7 +10,7 @@ import Contact from 'components/contact/Contact';
 import Footer from 'components/Footer/Footer';
 import { Box } from '@mui/material';
 
-ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS);
+ReactGA.initialize('G-01VMK6QMF4');
 console.log(process.env.REACT_APP_GOOGLE_ANALYTICS);
 
 function App() {
