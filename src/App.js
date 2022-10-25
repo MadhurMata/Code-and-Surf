@@ -8,6 +8,7 @@ import SurfSection from 'components/surfSection/SurfSection';
 import Contact from 'components/contact/Contact';
 import Footer from 'components/Footer/Footer';
 import { Box } from '@mui/material';
+import BlogSection from 'components/blogSection/BlogSection';
 
 function App() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -65,6 +66,9 @@ function App() {
       </Box>
       <Box ref={surfPackage}>
         <SurfSection anchorEl="surfPackage" setAnchorEl={setAnchorEl} />
+      </Box>
+      <Box ref={contact}>
+        <BlogSection />
       </Box>
       <Box ref={contact}>
         <Contact />
