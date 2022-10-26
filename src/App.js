@@ -7,8 +7,10 @@ import StackSection from 'components/stackSection/StackSection';
 import SurfSection from 'components/surfSection/SurfSection';
 import Contact from 'components/contact/Contact';
 import Footer from 'components/Footer/Footer';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import BlogSection from 'components/blogSection/BlogSection';
+
+import { useTheme } from '@emotion/react';
 
 function App() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -16,6 +18,8 @@ function App() {
   const techStack = useRef(null);
   const surfPackage = useRef(null);
   const contact = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const scrollToElement = (ref) => {
     switch (ref) {
@@ -68,7 +72,7 @@ function App() {
         <SurfSection anchorEl="surfPackage" setAnchorEl={setAnchorEl} />
       </Box>
       <Box ref={contact}>
-        <BlogSection />
+        <BlogSection deviceType={isMobile} />
       </Box>
       <Box ref={contact}>
         <Contact />
