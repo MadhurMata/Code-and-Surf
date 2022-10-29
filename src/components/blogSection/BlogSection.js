@@ -9,41 +9,64 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const styledBlog = {
-  container: {
-    backgroundColor: '#535353',
-    padding: '32px',
-    minHeight: '400px'
-  },
-  carousel: {
-    listStyle: 'none'
-  },
-  card: {
-    margin: '20px'
-  }
-};
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3 // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2 // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 700, min: 0 },
-    items: 1,
-    slidesToSlide: 1 // optional, default to 1.
-  }
-};
-
 const BlogSection = ({ deviceType }) => {
+  const styledBlog = {
+    container: {
+      backgroundColor: '#f0efef',
+      padding: '32px',
+      minHeight: '400px'
+    },
+    carousel: {
+      listStyle: 'none'
+    },
+    card: {
+      margin: '20px'
+    },
+    title: {
+      color: 'white'
+    }
+  };
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 700, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
+
+  const ellipsis = {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: '-webkit-box',
+    WebkitLineClamp: '2',
+    WebkitBoxOrient: 'vertical'
+  };
+
   return (
     <Box sx={styledBlog.container}>
+      <Typography
+        gutterBottom
+        sx={{
+          mb: '0',
+          fontSize: '20px',
+          fontWeight: 'bold',
+          lineHeight: '100%'
+        }}
+        component="div"
+        align="center">
+        Blog
+      </Typography>
       {!deviceType ? (
         <Carousel
           swipeable={false}
@@ -61,10 +84,10 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Code Surf Bali
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
                 across all continents except Antarctica
               </Typography>
@@ -82,10 +105,10 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 JavaScript Fundamentals
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
                 across all continents except Antarctica
               </Typography>
@@ -103,10 +126,10 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 JavaScript Fundamentals
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
                 across all continents except Antarctica
               </Typography>
@@ -124,10 +147,10 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Surf spots Bali
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
                 across all continents except Antarctica
               </Typography>
@@ -145,10 +168,10 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Digital nomads
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
                 Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
                 across all continents except Antarctica
               </Typography>
@@ -180,7 +203,7 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Code Surf Bali
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -201,7 +224,7 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 JavaScript Fundamentals
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -222,7 +245,7 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Surf spots Bali
               </Typography>
               <Typography variant="body2" color="text.secondary">
@@ -243,7 +266,7 @@ const BlogSection = ({ deviceType }) => {
               alt="green iguana"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h6" component="div">
                 Digital nomads
               </Typography>
               <Typography variant="body2" color="text.secondary">

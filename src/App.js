@@ -71,7 +71,7 @@ function App() {
       <Box ref={surfPackage}>
         <SurfSection anchorEl="surfPackage" setAnchorEl={setAnchorEl} />
       </Box>
-      <Box ref={contact}>
+      <Box>
         <BlogSection deviceType={isMobile} />
       </Box>
       <Box ref={contact}>
