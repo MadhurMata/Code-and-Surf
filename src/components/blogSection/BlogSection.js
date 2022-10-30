@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Box } from '@mui/material';
@@ -8,8 +8,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { client } from 'api/contentfulApi';
 
 const BlogSection = ({ deviceType }) => {
+  const [isCarouselLoading, setIsCarouselSlide] = useState();
+  const [carouselSlides, setCarouselSlides] = useState([]);
   const styledBlog = {
     container: {
       backgroundColor: '#f0efef',
@@ -31,17 +34,17 @@ const BlogSection = ({ deviceType }) => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3 // optional, default to 1.
+      slidesToSlide: 3
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 2,
-      slidesToSlide: 2 // optional, default to 1.
+      slidesToSlide: 2
     },
     mobile: {
       breakpoint: { max: 700, min: 0 },
       items: 1,
-      slidesToSlide: 1 // optional, default to 1.
+      slidesToSlide: 1
     }
   };
 
@@ -52,6 +55,39 @@ const BlogSection = ({ deviceType }) => {
     WebkitLineClamp: '2',
     WebkitBoxOrient: 'vertical'
   };
+
+  const cleanUpCarouselSlides = useCallback((rawData) => {
+    const cleanSlides = rawData.map((slide) => {
+      const { sys, fields } = slide;
+      const { id } = sys;
+      const slideTitle = fields.title;
+      const slideDescription = fields.description;
+      const slideImage = fields.image.fields.file.url;
+      const updatedSlide = { id, slideTitle, slideDescription, slideImage };
+      return updatedSlide;
+    });
+
+    setCarouselSlides(cleanSlides);
+  }, []);
+
+  const getBlogs = useCallback(async () => {
+    setIsCarouselSlide(true);
+    try {
+      const response = await (await client.getEntries({ content_type: 'blogPost' })).items;
+      if (response) cleanUpCarouselSlides(response);
+      else setCarouselSlides([]);
+      setIsCarouselSlide(false);
+    } catch (error) {
+      console.log(error);
+      setIsCarouselSlide(false);
+    }
+  }, [cleanUpCarouselSlides]);
+
+  useEffect(() => {
+    getBlogs();
+  }, [getBlogs]);
+
+  console.log(carouselSlides);
 
   return (
     <Box sx={styledBlog.container}>
@@ -67,7 +103,9 @@ const BlogSection = ({ deviceType }) => {
         align="center">
         Blog
       </Typography>
-      {!deviceType ? (
+      {isCarouselLoading ? (
+        <h1>LOADINGGGGGG</h1>
+      ) : !deviceType ? (
         <Carousel
           swipeable={false}
           draggable={false}
@@ -76,111 +114,26 @@ const BlogSection = ({ deviceType }) => {
           ssr={true} // means to render carousel on server-side.
           infinite={false}
           keyBoardControl={true}>
-          <Card sx={styledBlog.card}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Code Surf Bali
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={styledBlog.card}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                JavaScript Fundamentals
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={styledBlog.card}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                JavaScript Fundamentals
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={styledBlog.card}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Surf spots Bali
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={styledBlog.card}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Digital nomads
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={ellipsis}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
+          {carouselSlides.map((item) => {
+            const { id, slideTitle, slideDescription, slideImage } = item;
+            return (
+              <Card sx={styledBlog.card} key={id}>
+                <CardMedia component="img" height="140" image={slideImage} alt="green iguana" />
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {slideTitle}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={ellipsis}>
+                    {slideDescription}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  {/* <Button size="small">Share</Button> */}
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            );
+          })}
         </Carousel>
       ) : (
         <Carousel
@@ -195,90 +148,26 @@ const BlogSection = ({ deviceType }) => {
           deviceType="mobile"
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px">
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Code Surf Bali
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                JavaScript Fundamentals
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Surf spots Bali
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-          <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-              component="img"
-              height="140"
-              image="/static/images/cards/contemplative-reptile.jpg"
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h6" component="div">
-                Digital nomads
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging
-                across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
+          {carouselSlides.map((item) => {
+            const { id, slideTitle, slideDescription, slideImage } = item;
+            return (
+              <Card sx={styledBlog.card} key={id}>
+                <CardMedia component="img" height="140" image={slideImage} alt="green iguana" />
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {slideTitle}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={ellipsis}>
+                    {slideDescription}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  {/* <Button size="small">Share</Button> */}
+                  <Button size="small">Learn More</Button>
+                </CardActions>
+              </Card>
+            );
+          })}
         </Carousel>
       )}
     </Box>
