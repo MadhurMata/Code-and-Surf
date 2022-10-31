@@ -1,6 +1,9 @@
 import React, { useEffect, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+
 import { Box } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,8 +14,10 @@ import Typography from '@mui/material/Typography';
 import { client } from 'api/contentfulApi';
 
 const BlogSection = ({ deviceType }) => {
-  const [isCarouselLoading, setIsCarouselSlide] = useState();
+  const [isCarouselLoading, setIsCarouselLoading] = useState();
   const [carouselSlides, setCarouselSlides] = useState([]);
+  let navigate = useNavigate();
+
   const styledBlog = {
     container: {
       backgroundColor: '#f0efef',
@@ -71,15 +76,15 @@ const BlogSection = ({ deviceType }) => {
   }, []);
 
   const getBlogs = useCallback(async () => {
-    setIsCarouselSlide(true);
+    setIsCarouselLoading(true);
     try {
       const response = await (await client.getEntries({ content_type: 'blogPost' })).items;
       if (response) cleanUpCarouselSlides(response);
       else setCarouselSlides([]);
-      setIsCarouselSlide(false);
+      setIsCarouselLoading(false);
     } catch (error) {
       console.log(error);
-      setIsCarouselSlide(false);
+      setIsCarouselLoading(false);
     }
   }, [cleanUpCarouselSlides]);
 
@@ -87,7 +92,10 @@ const BlogSection = ({ deviceType }) => {
     getBlogs();
   }, [getBlogs]);
 
-  console.log(carouselSlides);
+  const handleNavigate = (slideTitle, id) => {
+    console.log('navigate');
+    navigate(`/${slideTitle}/${id}`);
+  };
 
   return (
     <Box sx={styledBlog.container}>
@@ -117,7 +125,7 @@ const BlogSection = ({ deviceType }) => {
           {carouselSlides.map((item) => {
             const { id, slideTitle, slideDescription, slideImage } = item;
             return (
-              <Card sx={styledBlog.card} key={id}>
+              <Card sx={styledBlog.card} key={id} onClick={() => handleNavigate(slideTitle, id)}>
                 <CardMedia component="img" height="140" image={slideImage} alt="green iguana" />
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
@@ -151,7 +159,7 @@ const BlogSection = ({ deviceType }) => {
           {carouselSlides.map((item) => {
             const { id, slideTitle, slideDescription, slideImage } = item;
             return (
-              <Card sx={styledBlog.card} key={id}>
+              <Card sx={styledBlog.card} key={id} onClick={() => handleNavigate(slideTitle, id)}>
                 <CardMedia component="img" height="140" image={slideImage} alt="green iguana" />
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">

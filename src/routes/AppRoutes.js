@@ -9,8 +9,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/:postTitle/:postId" element={<BlogPost />} />
-      {/* <Route path="/:heroName/:heroId" element={<Hero />} />
-      <Route path="*" element={<NotFound />} /> */}
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 }
