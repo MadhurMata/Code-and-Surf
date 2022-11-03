@@ -1,0 +1,15 @@
+.firstLineLogo {
+  font-family: 'gota-light', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 0.7;
+  letter-spacing: 2px;
+  color: #DDC476;
+}
+
+.subLineLogo {
+  font-family: 'GlacialIndifference', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-left: 2.5rem;
+}

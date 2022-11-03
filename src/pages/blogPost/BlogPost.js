@@ -3,13 +3,18 @@ import { useParams } from 'react-router-dom';
 import { client } from 'api/contentfulApi';
 
 import { Typography } from '@mui/material';
-import { Header } from 'components/Header/Header';
 import { Box } from '@mui/system';
+import { HeaderBlog } from 'components/HeaderBlog/HeaderBlog';
+import ContactModal from 'components/modals/contactModal.js/ContactModal';
+import BasicModal from 'components/basicModal/BasicModal';
 
 const BlogPost = () => {
   const params = useParams();
   //const [isPostLoading, setIsPostLoading] = useState();
   const [post, setPost] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [successMesage, setSuccessMessage] = useState(false);
+  const [errorMesage, setErrorMessage] = useState(false);
 
   const blogStyle = {
     container: {
@@ -21,7 +26,6 @@ const BlogPost = () => {
       minHeight: '100vh'
     },
     contentContainer: {
-      width: '100%',
       padding: '2rem 2rem 0',
       backgroundColor: '#ead1b4'
     },
@@ -64,7 +68,7 @@ const BlogPost = () => {
   return (
     <Box sx={blogStyle.container}>
       <Box>
-        <Header />
+        <HeaderBlog setOpen={() => setOpen(true)} />
       </Box>
       <Box sx={blogStyle.imageContainer}></Box>
       <Box sx={blogStyle.contentContainer}>
@@ -88,6 +92,29 @@ const BlogPost = () => {
           {post.description}
         </Typography>
       </Box>
+      <>
+        <ContactModal
+          open={open}
+          title="Waiting List"
+          onClose={() => setOpen(false)}
+          setOpen={(open) => setSuccessMessage(open)}
+          setErrorMessage={(open) => setErrorMessage(open)}
+        />
+        <BasicModal
+          open={successMesage}
+          onClose={() => setSuccessMessage(false)}
+          title="Waiting List"
+          content={`A member of our team will reach you as soon as possible`}
+        />
+        <BasicModal
+          open={errorMesage}
+          onClose={() => setErrorMessage(false)}
+          title="Waiting List"
+          content={
+            'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
+          }
+        />
+      </>
     </Box>
   );
 };
