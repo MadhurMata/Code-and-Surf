@@ -25,6 +25,17 @@ export const HeaderBlog = ({ setOpen }) => {
       margin: '0 auto',
       zIndex: 10
     },
+    wrapperSmallDevice: {
+      position: 'sticky',
+      alignItems: 'center',
+      top: 0,
+      right: 0,
+      height: '60px',
+      padding: '20px 0 20px',
+      backgroundColor: '#5FAAB2',
+      margin: '0 auto',
+      zIndex: 10
+    },
     innerBox: {
       display: 'flex',
       flexDirection: 'row',
@@ -46,7 +57,7 @@ export const HeaderBlog = ({ setOpen }) => {
   };
 
   return (
-    <Box sx={headerStyles.wrapper}>
+    <Box sx={matches ? headerStyles.wrapperSmallDevice : headerStyles.wrapper}>
       <Box sx={headerStyles.innerBox}>
         <Box>
           <Link sx={{ textDecoration: 'none' }} href="/">
