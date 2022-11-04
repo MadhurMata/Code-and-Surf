@@ -1,15 +1,43 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { client } from 'api/contentfulApi';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Link, Typography, useMediaQuery } from '@mui/material';
+import { Box, useTheme } from '@mui/system';
 import { HeaderBlog } from 'components/HeaderBlog/HeaderBlog';
 import ContactModal from 'components/modals/contactModal.js/ContactModal';
 import BasicModal from 'components/basicModal/BasicModal';
 
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      console.log('arrafo', node);
+      return (
+        <Typography
+          sx={{
+            margin: '2rem',
+            fontSize: '18px',
+            lineHeight: '150%',
+            fontWeight: '400'
+          }}>
+          {children}
+        </Typography>
+      );
+    },
+    [INLINES.HYPERLINK]: (node, children) => {
+      console.log('link', node);
+      return <Link href={node.data.uri}>{children}</Link>;
+    }
+  }
+};
+
 const BlogPost = () => {
   const params = useParams();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
   //const [isPostLoading, setIsPostLoading] = useState();
   const [post, setPost] = useState([]);
   const [open, setOpen] = useState(false);
@@ -23,11 +51,8 @@ const BlogPost = () => {
       gridTemplateRows: 'max-content',
       gridColumnGap: '0px',
       gridRowGap: '0px',
-      minHeight: '100vh'
-    },
-    contentContainer: {
-      padding: '2rem 2rem 0',
-      backgroundColor: '#ead1b4'
+      minHeight: '100vh',
+      backgroundColor: '#F2F3F4'
     },
     imageContainer: {
       width: '100%',
@@ -35,15 +60,22 @@ const BlogPost = () => {
       backgroundImage: `url(${post.image})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover'
+    },
+    blogTitle: {
+      margin: '2rem',
+      fontWeight: 600,
+      fontSize: '1.8rem',
+      lineHeight: 1.2,
+      letterSpacing: '0.03em'
     }
   };
 
   const cleanUpCarouselSlides = useCallback((rawData) => {
     const { fields } = rawData;
     const title = fields.title;
-    const description = fields.description;
+    const content = parseRichText(fields.content);
     const image = fields.image.fields.file.url;
-    const updatedSlide = { title, description, image };
+    const updatedSlide = { title, content, image };
 
     setPost(updatedSlide);
   }, []);
@@ -61,6 +93,11 @@ const BlogPost = () => {
     }
   }, []);
 
+  const parseRichText = (rawRichTextField) => {
+    console.log('first', documentToReactComponents(rawRichTextField, richTextOptions));
+    return documentToReactComponents(rawRichTextField, richTextOptions);
+  };
+
   useEffect(() => {
     getBlogs();
   }, [getBlogs]);
@@ -71,25 +108,16 @@ const BlogPost = () => {
         <HeaderBlog setOpen={() => setOpen(true)} />
       </Box>
       <Box sx={blogStyle.imageContainer}></Box>
-      <Box sx={blogStyle.contentContainer}>
+      <Box sx={matches ? blogStyle.contentContainerSmall : blogStyle.contentContainer}>
+        <Typography sx={blogStyle.blogTitle}>{post.title}</Typography>
         <Typography
           sx={{
-            margin: '2rem',
-            fontWeight: 400,
-            fontSize: '2.2rem',
-            lineHeight: 1.2,
-            letterSpacing: '0.03em'
-          }}>
-          {post.title}
-        </Typography>
-        <Typography
-          sx={{
-            margin: '2rem',
+            margin: '1rem',
             fontSize: '18px',
             lineHeight: '150%',
             fontWeight: '400'
           }}>
-          {post.description}
+          {post.content}
         </Typography>
       </Box>
       <>

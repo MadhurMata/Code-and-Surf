@@ -40,10 +40,10 @@ export const HeaderBlog = ({ setOpen }) => {
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-around',
-      alignItems: 'baseline'
+      alignItems: 'center'
     },
     buttonsContainer: {
-      width: '150px'
+      width: '130px'
     },
     webButton: {
       color: '#DDC476',
@@ -74,14 +74,14 @@ export const HeaderBlog = ({ setOpen }) => {
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
           <Box sx={matches ? headerStyles.buttonsContainer : null}>
             <Link sx={{ textDecoration: 'none' }} href="/">
-              <CommonButton aria-label="Back home">
+              <CommonButton aria-label="Back home" sx={{ paddingTop: 0 }}>
                 <Tooltip title="Back home" arrow>
                   <KeyboardBackspaceOutlinedIcon sx={headerStyles.webButton} />
                 </Tooltip>
               </CommonButton>
             </Link>
 
-            <CommonButton aria-label="Contact us" onClick={setOpen}>
+            <CommonButton aria-label="Contact us" sx={{ paddingTop: 0 }} onClick={setOpen}>
               <Tooltip title="Contact us" arrow>
                 <MailOutlineOutlinedIcon sx={headerStyles.webButton} />
               </Tooltip>

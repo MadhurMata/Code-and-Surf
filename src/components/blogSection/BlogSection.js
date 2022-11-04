@@ -13,6 +13,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { client } from 'api/contentfulApi';
 
+import Loader from 'components/loader/Loader';
+
 const BlogSection = ({ deviceType }) => {
   const [isCarouselLoading, setIsCarouselLoading] = useState();
   const [carouselSlides, setCarouselSlides] = useState([]);
@@ -20,7 +22,7 @@ const BlogSection = ({ deviceType }) => {
 
   const styledBlog = {
     container: {
-      backgroundColor: '#f0efef',
+      backgroundColor: '#F2F3F4',
       padding: '32px',
       minHeight: '400px'
     },
@@ -112,7 +114,7 @@ const BlogSection = ({ deviceType }) => {
         Blog
       </Typography>
       {isCarouselLoading ? (
-        <h1>LOADINGGGGGG</h1>
+        <Loader />
       ) : !deviceType ? (
         <Carousel
           swipeable={false}
