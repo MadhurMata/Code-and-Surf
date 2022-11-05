@@ -13,7 +13,6 @@ import BasicModal from 'components/basicModal/BasicModal';
 const richTextOptions = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      console.log('arrafo', node);
       return (
         <Typography
           sx={{
@@ -27,7 +26,6 @@ const richTextOptions = {
       );
     },
     [INLINES.HYPERLINK]: (node, children) => {
-      console.log('link', node);
       return <Link href={node.data.uri}>{children}</Link>;
     }
   }
@@ -94,7 +92,6 @@ const BlogPost = () => {
   }, []);
 
   const parseRichText = (rawRichTextField) => {
-    console.log('first', documentToReactComponents(rawRichTextField, richTextOptions));
     return documentToReactComponents(rawRichTextField, richTextOptions);
   };
 
@@ -105,7 +102,7 @@ const BlogPost = () => {
   return (
     <Box sx={blogStyle.container}>
       <Box>
-        <HeaderBlog setOpen={() => setOpen(true)} />
+        <HeaderBlog setOpen={() => setOpen(true)} showPaginationArrows />
       </Box>
       <Box sx={blogStyle.imageContainer}></Box>
       <Box sx={matches ? blogStyle.contentContainerSmall : blogStyle.contentContainer}>

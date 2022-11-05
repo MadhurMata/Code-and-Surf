@@ -9,7 +9,7 @@ import NavigateNextOutlinedIcon from '@mui/icons-material/NavigateNextOutlined';
 import NavigateBeforeOutlinedIcon from '@mui/icons-material/NavigateBeforeOutlined';
 import { Link, Box, useTheme, useMediaQuery, Tooltip } from '@mui/material';
 
-export const HeaderBlog = ({ setOpen }) => {
+export const HeaderBlog = ({ setOpen, showPaginationArrows }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -46,6 +46,8 @@ export const HeaderBlog = ({ setOpen }) => {
       width: '130px'
     },
     webButton: {
+      width: '40px',
+      height: '40px',
       color: '#DDC476',
       fontWeight: 'bold',
       margin: 0,
@@ -86,16 +88,20 @@ export const HeaderBlog = ({ setOpen }) => {
                 <MailOutlineOutlinedIcon sx={headerStyles.webButton} />
               </Tooltip>
             </CommonButton>
-            <CommonButton aria-label="Previous post">
-              <Tooltip title="Previous post" arrow sx={{ zIndex: 1000 }}>
-                <NavigateBeforeOutlinedIcon sx={headerStyles.webButton} />
-              </Tooltip>
-            </CommonButton>
-            <CommonButton aria-label="Next post">
-              <Tooltip title="Next post" arrow>
-                <NavigateNextOutlinedIcon sx={headerStyles.webButton} />
-              </Tooltip>
-            </CommonButton>
+            {showPaginationArrows && (
+              <>
+                <CommonButton aria-label="Previous post">
+                  <Tooltip title="Previous post" arrow sx={{ zIndex: 1000 }}>
+                    <NavigateBeforeOutlinedIcon sx={headerStyles.webButton} />
+                  </Tooltip>
+                </CommonButton>
+                <CommonButton aria-label="Next post">
+                  <Tooltip title="Next post" arrow>
+                    <NavigateNextOutlinedIcon sx={headerStyles.webButton} />
+                  </Tooltip>
+                </CommonButton>
+              </>
+            )}
           </Box>
         </Box>
       </Box>

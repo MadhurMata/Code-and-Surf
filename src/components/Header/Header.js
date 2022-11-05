@@ -1,10 +1,11 @@
 import React from 'react';
 
-import './styles.css';
-
 import CommonButton from 'components/CommonButton/CommonButton';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 
-import { Link, List, Typography, Box, useTheme, useMediaQuery } from '@mui/material';
+import { Link, List, Typography, Box, useTheme, useMediaQuery, Tooltip } from '@mui/material';
+import blogIcon from 'assets/images/blog.svg';
+import './styles.css';
 
 import { mainNavbarItems } from './navbarItems';
 
@@ -64,11 +65,22 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       fontSize: '1.8rem'
     },
     webButton: {
-      color: 'black',
-      fontWeight: 'bold'
+      width: '40px',
+      height: '40px',
+      color: '#DDC476',
+      fontWeight: 'bold',
+      margin: 0,
+      padding: 0
     },
     logo: {
       fontFamily: 'gota-light'
+    },
+    imageContainer: {
+      width: '40px',
+      height: '40px',
+      backgroundImage: `url(${blogIcon})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover'
     }
   };
 
@@ -100,10 +112,19 @@ export const Header = ({ anchorEl, scrollToElement }) => {
               ))}
             </List>
           </Box>
-          <Box>
+          <Box sx={{ display: 'flex' }}>
+            <Link sx={{ textDecoration: 'none' }} href="/blog">
+              <CommonButton sx={headerStyles.webButton}>
+                <Tooltip title="Blog" arrow>
+                  <Box sx={headerStyles.imageContainer}></Box>
+                </Tooltip>
+              </CommonButton>
+            </Link>
             <Box sx={{ textDecoration: 'none' }} onClick={() => scrollToElement('contact')}>
-              <CommonButton sx={headerStyles.webButton} variant="contained">
-                Contact us
+              <CommonButton sx={headerStyles.webButton}>
+                <Tooltip title="Contact us" arrow>
+                  <MailOutlineOutlinedIcon sx={headerStyles.webButton} />
+                </Tooltip>
               </CommonButton>
             </Box>
           </Box>
