@@ -3,7 +3,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { TreesContext } from 'App';
 
-import { Box } from '@mui/material';
+import { Box, Button, Link } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import Loader from 'components/loader/Loader';
@@ -15,15 +15,21 @@ const BlogSection = ({ deviceType }) => {
 
   const styledBlog = {
     container: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
       backgroundColor: '#F2F3F4',
       padding: '32px',
       minHeight: '400px'
     },
-    carousel: {
-      listStyle: 'none'
-    },
     title: {
       color: 'white'
+    },
+    webButton: {
+      width: 'fit-content',
+      marginTop: '16px',
+      color: 'black',
+      fontWeight: 'bold'
     }
   };
 
@@ -51,51 +57,62 @@ const BlogSection = ({ deviceType }) => {
 
   return (
     <Box sx={styledBlog.container}>
-      <Typography
-        gutterBottom
-        sx={{
-          mb: '0',
-          fontSize: '20px',
-          fontWeight: 'bold',
-          lineHeight: '100%'
-        }}
-        component="div"
-        align="center">
-        Blog
-      </Typography>
-      {isCarouselLoading ? (
-        <Loader />
-      ) : !deviceType ? (
-        <Carousel
-          swipeable={false}
-          draggable={false}
-          showDots={false}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          infinite={false}
-          keyBoardControl={true}>
-          {posts?.map((item) => {
-            return <PostCard key={item.id} item={item} />;
-          })}
-        </Carousel>
-      ) : (
-        <Carousel
-          swipeable={true}
-          draggable={false}
-          showDots={false}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          infinite={true}
-          containerClass="carousel-container"
-          removeArrowOnDeviceType={['mobile']}
-          deviceType="mobile"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px">
-          {posts?.map((item) => {
-            return <PostCard key={item.id} item={item} />;
-          })}
-        </Carousel>
-      )}
+      <Box>
+        <Typography
+          gutterBottom
+          sx={{
+            mb: '0',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            lineHeight: '100%'
+          }}
+          component="div"
+          align="center">
+          Blog Posts
+        </Typography>
+      </Box>
+      <Box>
+        {isCarouselLoading ? (
+          <Loader />
+        ) : !deviceType ? (
+          <Carousel
+            swipeable={false}
+            draggable={false}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={false}
+            keyBoardControl={true}>
+            {posts?.map((item) => {
+              return <PostCard key={item.id} item={item} />;
+            })}
+          </Carousel>
+        ) : (
+          <Carousel
+            swipeable={true}
+            draggable={false}
+            showDots={false}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={['mobile']}
+            deviceType="mobile"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px">
+            {posts?.map((item) => {
+              return <PostCard key={item.id} item={item} />;
+            })}
+          </Carousel>
+        )}
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Link sx={{ textDecoration: 'none' }} href="/blog">
+          <Button variant="contained" sx={styledBlog.webButton}>
+            Check more articles
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 };

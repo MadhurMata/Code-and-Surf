@@ -15,7 +15,12 @@ const PostCard = ({ item }) => {
 
   const styledBlog = {
     card: {
-      margin: '20px'
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      margin: '20px',
+      width: '300px',
+      height: '320px'
     }
   };
 
@@ -43,7 +48,9 @@ const PostCard = ({ item }) => {
       </CardContent>
       <CardActions>
         {/* <Button size="small">Share</Button> */}
-        <Button size="small">Learn More</Button>
+        <Button style={{ color: '#5FAAB2', fontWeight: 600 }} size="small">
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );

@@ -76,8 +76,8 @@ export const Header = ({ anchorEl, scrollToElement }) => {
       fontFamily: 'gota-light'
     },
     imageContainer: {
-      width: '40px',
-      height: '40px',
+      width: '30px',
+      height: '30px',
       backgroundImage: `url(${blogIcon})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover'
