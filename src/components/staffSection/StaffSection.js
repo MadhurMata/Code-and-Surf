@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 import Loader from 'components/loader/Loader';
-import PostCard from 'components/postCard/PostCard';
+import StaffCard from 'components/staffCard/StaffCard';
 
 const StaffSection = ({ deviceType }) => {
   const [posts] = useContext(TreesContext);
@@ -19,8 +19,7 @@ const StaffSection = ({ deviceType }) => {
       flexDirection: 'column',
       justifyContent: 'center',
       backgroundColor: '#ead1b4',
-      padding: '32px',
-      minHeight: '400px'
+      padding: '32px'
     },
     title: {
       color: 'white'
@@ -84,7 +83,7 @@ const StaffSection = ({ deviceType }) => {
             infinite={false}
             keyBoardControl={true}>
             {posts?.map((item) => {
-              return <PostCard key={item.id} item={item} />;
+              return <StaffCard key={item.id} />;
             })}
           </Carousel>
         ) : (
@@ -101,7 +100,7 @@ const StaffSection = ({ deviceType }) => {
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px">
             {posts?.map((item) => {
-              return <PostCard key={item.id} item={item} />;
+              return <StaffCard key={item.id} />;
             })}
           </Carousel>
         )}

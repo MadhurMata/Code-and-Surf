@@ -13,14 +13,15 @@ const PostCard = ({ item }) => {
 
   const { id, slideTitle, slideDescription, slideImage } = item;
 
-  const styledBlog = {
+  const styledPostCard = {
     card: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
       margin: '20px',
       width: '300px',
-      height: '320px'
+      height: '320px',
+      cursor: 'pointer'
     }
   };
 
@@ -36,7 +37,7 @@ const PostCard = ({ item }) => {
     navigate(`/${slideTitle}/${id}`);
   };
   return (
-    <Card sx={styledBlog.card} key={id} onClick={() => handleNavigate(slideTitle, id)}>
+    <Card sx={styledPostCard.card} key={id} onClick={() => handleNavigate(slideTitle, id)}>
       <CardMedia component="img" height="140" image={slideImage} alt="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">

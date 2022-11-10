@@ -6,7 +6,7 @@ import { Box, Typography, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/system';
 import SectionWrapper from 'components/sectionWrapper/SectionWrapper';
 
-import girlCoding from 'assets/images/surf.jpeg';
+import surf from 'assets/images/surf.jpeg';
 
 function SurfSection({ anchorEl, setAnchorEl }) {
   const ref = useRef();
@@ -92,11 +92,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
           </Box>
         </Box>
         <Box sx={matches ? { width: '100%' } : { width: '40%' }}>
-          <img
-            style={{ width: '100%', borderRadius: '21px' }}
-            src={girlCoding}
-            alt="Code on a screen"
-          />
+          <img style={{ width: '100%', borderRadius: '21px' }} src={surf} alt="Code on a screen" />
         </Box>
         <Box className="overlaySurf"></Box>
       </Box>
