@@ -1,14 +1,13 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
-import madhur from 'assets/images/staff/DSCF0976.jpg';
+import madhur from 'assets/images/staff/co-founder.jpeg';
 
 function StaffCard() {
   const styledStaffCard = {
     cardContainer: {
       margin: '20px',
-      height: '100%',
-      borderRadius: '10px'
+      height: '100%'
     },
     imageContainer: {
       width: '100%',
@@ -22,10 +21,14 @@ function StaffCard() {
       flexDirection: 'column',
       justifyContent: 'space-between',
       margin: '20px',
-      minWidth: '300px',
-      backgroundColor: '#ead1b4',
+      width: '300px',
+      backgroundColor: '#D19560',
       boxShadow: 'none',
       borderRadius: '20px'
+    },
+    image: {
+      height: '100%',
+      width: '300px'
     }
   };
 
@@ -48,13 +51,13 @@ function StaffCard() {
     //   </Box>
     // </Box>
     <Card sx={styledStaffCard.card}>
-      <CardMedia component="img" height="220" image={madhur} alt="green iguana" />
+      <CardMedia sx={styledStaffCard.image} component="img" image={madhur} alt="Co-founder" />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           {'Madhur Mata'}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {'Co-Founder'}
+          {'CO-FOUNDER'}
         </Typography>
       </CardContent>
     </Card>

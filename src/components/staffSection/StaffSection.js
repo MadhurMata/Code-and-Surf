@@ -10,6 +10,8 @@ import Loader from 'components/loader/Loader';
 import StaffCard from 'components/staffCard/StaffCard';
 import { useIntersection } from 'hooks/useIntersection';
 
+import './styles.css';
+
 const StaffSection = ({ deviceType, anchorEl, setAnchorEl }) => {
   const ref = useRef();
   const inViewport = useIntersection(ref, '-350px');
@@ -21,7 +23,7 @@ const StaffSection = ({ deviceType, anchorEl, setAnchorEl }) => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      backgroundColor: '#ead1b4',
+      backgroundColor: '#D19560',
       padding: '32px'
     },
     title: {

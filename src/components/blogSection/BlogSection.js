@@ -21,7 +21,7 @@ const BlogSection = ({ deviceType, anchorEl, setAnchorEl }) => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      backgroundColor: '#F2F3F4',
+      backgroundColor: '#ead1b4',
       padding: '32px',
       minHeight: '400px'
     },

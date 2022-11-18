@@ -49,7 +49,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
     if (inViewport && anchorEl) setAnchorEl(anchorEl);
   }, [inViewport]);
   return (
-    <SectionWrapper title="Surf" backgroundColor="#ead1b4">
+    <SectionWrapper title="Surf" backgroundColor="#aec3bd">
       <Box
         sx={
           matches
