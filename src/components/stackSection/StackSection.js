@@ -82,7 +82,7 @@ function StackSection({ anchorEl, setAnchorEl }) {
         }>
         <Box sx={matches ? { width: '100%' } : { width: '40%' }}>
           <img
-            style={{ width: '100%', borderRadius: '21px' }}
+            style={{ width: '100%', borderRadius: '20px' }}
             src={digitalNomad}
             alt="Code on a screen"
           />

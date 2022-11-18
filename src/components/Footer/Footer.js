@@ -5,7 +5,7 @@ import { Box, Link, Typography } from '@mui/material';
 import PrivacyModal from 'components/modals/privacyModal/PrivacyModal';
 
 import instagramLogo from 'assets/images/instagram.png';
-// import facebookLogo from 'assets/images//facebook.png';
+import facebookLogo from 'assets/images//facebook.png';
 // import linkedinLogo from 'assets/images/linkedin.png';
 
 function Footer() {
@@ -33,10 +33,10 @@ function Footer() {
           <Link target="_blank" href="https://www.instagram.com/codesurfbali">
             <img style={{ width: '15px', margin: '0 5px' }} src={instagramLogo} alt="Instagram" />
           </Link>
-          {/* <Link target="_blank" href="http://www.google.com">
+          <Link target="_blank" href="https://www.facebook.com/profile.php?id=100085144951004">
             <img style={{ width: '15px', margin: '0 5px' }} src={facebookLogo} alt="Facebook" />
           </Link>
-          <Link target="_blank" href="http://www.google.com">
+          {/* <Link target="_blank" href="http://www.google.com">
             <img style={{ width: '15px', margin: '0 5px' }} src={linkedinLogo} alt="Linkedin" />
           </Link> */}
         </span>

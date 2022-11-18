@@ -75,7 +75,7 @@ const BlogSection = ({ deviceType, anchorEl, setAnchorEl }) => {
           }}
           component="div"
           align="center">
-          Blog Posts
+          Blog posts
         </Typography>
       </Box>
       <Box>

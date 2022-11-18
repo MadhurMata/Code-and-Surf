@@ -92,7 +92,7 @@ function SurfSection({ anchorEl, setAnchorEl }) {
           </Box>
         </Box>
         <Box sx={matches ? { width: '100%' } : { width: '40%' }}>
-          <img style={{ width: '100%', borderRadius: '21px' }} src={surf} alt="Code on a screen" />
+          <img style={{ width: '100%', borderRadius: '20px' }} src={surf} alt="Code on a screen" />
         </Box>
         <Box className="overlaySurf"></Box>
       </Box>

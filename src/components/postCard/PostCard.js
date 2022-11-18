@@ -19,7 +19,7 @@ const PostCard = ({ item }) => {
       flexDirection: 'column',
       justifyContent: 'space-between',
       margin: '20px',
-      width: '300px',
+      minWidth: '300px',
       height: '320px',
       cursor: 'pointer'
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 import madhur from 'assets/images/staff/DSCF0976.jpg';
 
@@ -7,8 +7,8 @@ function StaffCard() {
   const styledStaffCard = {
     cardContainer: {
       margin: '20px',
-      width: '300px',
-      height: '100%'
+      height: '100%',
+      borderRadius: '10px'
     },
     imageContainer: {
       width: '100%',
@@ -16,23 +16,48 @@ function StaffCard() {
     },
     textContainer: {
       margin: 'none'
+    },
+    card: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      margin: '20px',
+      minWidth: '300px',
+      height: '320px',
+      backgroundColor: '#ead1b4',
+      boxShadow: 'none'
     }
   };
 
   return (
-    <Box sx={styledStaffCard.cardContainer}>
-      <Box sx={styledStaffCard.imageContainer}>
-        <img style={{ width: '100%', height: 'auto' }} src={madhur} alt="Code on a screen" />
-      </Box>
-      <Box sx={styledStaffCard.textContainer}>
+    // <Box sx={styledStaffCard.cardContainer}>
+    //   <Box sx={styledStaffCard.imageContainer}>
+    //     <img
+    //       style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
+    //       src={madhur}
+    //       alt="Code on a screen"
+    //     />
+    //   </Box>
+    //   <Box sx={styledStaffCard.textContainer}>
+    //     <Typography gutterBottom variant="h6" component="div">
+    //       Marta Garcia
+    //     </Typography>
+    //     <Typography gutterBottom variant="body2" color="text.secondary" component="div">
+    //       Marketing social media
+    //     </Typography>
+    //   </Box>
+    // </Box>
+    <Card sx={styledStaffCard.card}>
+      <CardMedia component="img" height="140" image={madhur} alt="green iguana" />
+      <CardContent>
         <Typography gutterBottom variant="h6" component="div">
-          Marta Garcia
+          {'Madhur Mata'}
         </Typography>
-        <Typography gutterBottom variant="body2" color="text.secondary" component="div">
-          Marketing social media
+        <Typography variant="body2" color="text.secondary">
+          {'Co-Founder'}
         </Typography>
-      </Box>
-    </Box>
+      </CardContent>
+    </Card>
   );
 }
 
