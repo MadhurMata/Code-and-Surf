@@ -23,9 +23,9 @@ function StaffCard() {
       justifyContent: 'space-between',
       margin: '20px',
       minWidth: '300px',
-      height: '320px',
       backgroundColor: '#ead1b4',
-      boxShadow: 'none'
+      boxShadow: 'none',
+      borderRadius: '20px'
     }
   };
 
@@ -48,7 +48,7 @@ function StaffCard() {
     //   </Box>
     // </Box>
     <Card sx={styledStaffCard.card}>
-      <CardMedia component="img" height="140" image={madhur} alt="green iguana" />
+      <CardMedia component="img" height="220" image={madhur} alt="green iguana" />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           {'Madhur Mata'}
