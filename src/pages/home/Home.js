@@ -18,6 +18,7 @@ function Home() {
   const boootcampContent = useRef(null);
   const techStack = useRef(null);
   const surfPackage = useRef(null);
+  const blogPosts = useRef(null);
   const staff = useRef(null);
   const contact = useRef(null);
   const theme = useTheme();
@@ -40,6 +41,12 @@ function Home() {
       case 'surfPackage':
         window.scrollTo({
           top: surfPackage.current.offsetTop - 140,
+          behavior: 'smooth'
+        });
+        break;
+      case 'blogPosts':
+        window.scrollTo({
+          top: blogPosts.current.offsetTop - 140,
           behavior: 'smooth'
         });
         break;
@@ -79,8 +86,8 @@ function Home() {
       <Box ref={surfPackage}>
         <SurfSection anchorEl="surfPackage" setAnchorEl={setAnchorEl} />
       </Box>
-      <Box>
-        <BlogSection deviceType={isMobile} />
+      <Box ref={blogPosts}>
+        <BlogSection anchorEl="blogPosts" setAnchorEl={setAnchorEl} deviceType={isMobile} />
       </Box>
       <Box ref={staff}>
         <StaffSection anchorEl="staff" setAnchorEl={setAnchorEl} deviceType={isMobile} />

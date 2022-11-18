@@ -100,7 +100,7 @@ export const Header = ({ anchorEl, scrollToElement }) => {
         </Box>
 
         <Box display="flex" flexDirection="row" alignItems={'baseline'}>
-          <Box display={{ xs: 'none', md: 'block' }}>
+          <Box display={{ xs: 'none', lg: 'block' }}>
             <List disablePadding sx={{ display: 'flex' }}>
               {mainNavbarItems.map((item) => (
                 <Typography

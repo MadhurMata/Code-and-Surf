@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { TreesContext } from 'App';
@@ -8,8 +8,11 @@ import Typography from '@mui/material/Typography';
 
 import Loader from 'components/loader/Loader';
 import PostCard from 'components/postCard/PostCard';
+import { useIntersection } from 'hooks/useIntersection';
 
-const BlogSection = ({ deviceType }) => {
+const BlogSection = ({ deviceType, anchorEl, setAnchorEl }) => {
+  const ref = useRef();
+  const inViewport = useIntersection(ref, '-350px'); // Trigger as soon as the element becomes visible
   const [posts] = useContext(TreesContext);
   const [isCarouselLoading, setIsCarouselLoading] = useState(true);
 
@@ -55,8 +58,12 @@ const BlogSection = ({ deviceType }) => {
     if (posts) setIsCarouselLoading(false);
   }, [posts]);
 
+  useEffect(() => {
+    if (inViewport && anchorEl) setAnchorEl(anchorEl);
+  }, [inViewport]);
+
   return (
-    <Box sx={styledBlog.container}>
+    <Box sx={styledBlog.container} ref={ref}>
       <Box>
         <Typography
           gutterBottom
