@@ -8,7 +8,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { modalStyles } from './styles';
 
 const BasicModal = ({ open, onClose, title, subTitle, content, showEmail }) => {
-  console.log('showEmail', showEmail);
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={modalStyles.wrapper}>
