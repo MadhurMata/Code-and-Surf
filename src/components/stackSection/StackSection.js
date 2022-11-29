@@ -21,6 +21,7 @@ const techStack = [
   'MongoDB',
   `REST APIs`,
   'Git',
+  'Unit Testing',
   '...'
 ];
 
@@ -136,12 +137,11 @@ function StackSection({ anchorEl, setAnchorEl }) {
             content={`Course content on it's way!`}
           />
           <BasicModal
+            showEmail
             open={errorMesage}
             onClose={() => setErrorMessage(false)}
             title="Request course content"
-            content={
-              'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
-            }
+            content={'Oops, something went wrong. Please try again later or contact us by e-mail:'}
           />
         </>
       </Box>

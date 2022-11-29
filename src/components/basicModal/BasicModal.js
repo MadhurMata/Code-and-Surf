@@ -2,12 +2,13 @@ import React from 'react';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { Modal } from '@mui/material';
+import { Link, Modal } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import { modalStyles } from './styles';
 
-const BasicModal = ({ open, onClose, title, subTitle, content }) => {
+const BasicModal = ({ open, onClose, title, subTitle, content, showEmail }) => {
+  console.log('showEmail', showEmail);
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={modalStyles.wrapper}>
@@ -19,6 +20,11 @@ const BasicModal = ({ open, onClose, title, subTitle, content }) => {
         </Box>
         <Typography sx={{ mt: 2 }}>{subTitle}</Typography>
         {content}
+        {showEmail && (
+          <Link sx={modalStyles.email} href="mailto:info@codesurfbali.com">
+            info@codesurfbali.com
+          </Link>
+        )}
         <Box sx={modalStyles.buttons}></Box>
       </Box>
     </Modal>

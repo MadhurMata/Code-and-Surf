@@ -22,5 +22,12 @@ export const modalStyles = {
   buttons: {
     display: 'flex',
     justifyContent: 'end'
+  },
+  email: {
+    display: 'block',
+    color: 'black',
+    fontWeight: 500,
+    marginTop: '10px',
+    textDecorationColor: 'black'
   }
 };

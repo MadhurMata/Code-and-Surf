@@ -77,14 +77,15 @@ function FirstSection({ anchorEl, setAnchorEl }) {
               open={successMesage}
               onClose={() => setSuccessMessage(false)}
               title="Waiting List"
-              content={`A member of our team will reach you as soon as possible`}
+              content={`We received your request! A member of our team will reach you as soon as possible`}
             />
             <BasicModal
+              showEmail
               open={errorMesage}
               onClose={() => setErrorMessage(false)}
               title="Waiting List"
               content={
-                'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
+                'Oops, something went wrong. Please try again later or contact us by e-mail:'
               }
             />
           </>

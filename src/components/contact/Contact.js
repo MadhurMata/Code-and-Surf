@@ -45,8 +45,7 @@ function Contact() {
     })
       .then((response) => {
         if (!response.ok) {
-          setErrorMessage(true);
-          throw new Error('Not 2xx response', { cause: response });
+          throw new Error('Error', { cause: response });
         } else {
           setSuccessMessage(true);
         }
@@ -92,6 +91,7 @@ function Contact() {
                       placeholder="Enter first name"
                       variant="outlined"
                       fullWidth
+                      value={firstName}
                       required
                     />
                   </Grid>
@@ -104,6 +104,7 @@ function Contact() {
                       placeholder="Enter last name"
                       variant="outlined"
                       fullWidth
+                      value={lastName}
                       required
                     />
                   </Grid>
@@ -117,6 +118,7 @@ function Contact() {
                       variant="outlined"
                       type="email"
                       fullWidth
+                      value={email}
                       required
                     />
                   </Grid>
@@ -131,6 +133,7 @@ function Contact() {
                       multiline
                       rows={4}
                       fullWidth
+                      value={message}
                       required
                     />
                   </Grid>
@@ -152,14 +155,15 @@ function Contact() {
           open={successMesage}
           onClose={() => setSuccessMessage(false)}
           title="Contact form request"
-          content={'A member of our team will reach you as soon as possible'}></BasicModal>
+          content={
+            'We received your request! A member of our team will reach you as soon as possible'
+          }></BasicModal>
         <BasicModal
+          showEmail
           open={errorMesage}
           onClose={() => setErrorMessage(false)}
           title="Contact form request"
-          content={
-            'Oops, something went wrong. Please try again later or contact us by e-mail: info@codesurfbali.com'
-          }></BasicModal>
+          content={`Oops, something went wrong. Please try again later or contact us by e-mail: `}></BasicModal>
       </Grid>
     </SectionWrapper>
   );
