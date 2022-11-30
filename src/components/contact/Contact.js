@@ -156,7 +156,7 @@ function Contact() {
           onClose={() => setSuccessMessage(false)}
           title="Contact form request"
           content={
-            'We received your request! A member of our team will reach you as soon as possible'
+            'We received your request! A member of our team will reach you as soon as possible. If you do not receive an e-mail in the next 48h check your Spam.'
           }></BasicModal>
         <BasicModal
           showEmail
