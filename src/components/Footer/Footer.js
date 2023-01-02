@@ -38,7 +38,7 @@ function Footer() {
       <Box sx={footerStyles.container}>
         <Box>
           <Typography variant="body2" color="text.secondary">
-            Copyright 2022 &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp;{' '}
+            Copyright 2023 &nbsp;|&nbsp; All rights reserved &nbsp;|&nbsp;{' '}
           </Typography>
         </Box>
         <Box>
